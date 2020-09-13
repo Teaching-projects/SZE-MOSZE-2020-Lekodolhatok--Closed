@@ -11,11 +11,8 @@ public:
 	Character(std::string name, int hp, int dmg);
 	~Character();
 	std::string getName();
-	int getHP();
-	int getDMG();
 	void AttackEnemy(Character& enemy);
 	bool isDead();
-
 	friend std::ostream& operator<<(std::ostream& os, const Character& dt);
 };
 #endif // !CHARACTER_H

@@ -8,18 +8,11 @@ std::string Character::getName() {
 	return Character::Name;
 }
 
-int Character::getHP() {
-	return Character::HP;
-}
-
-int Character::getDMG() {
-	return Character::DMG;
-}
-
 void Character::AttackEnemy(Character& enemy) {
 	std::cout << Character::Name << " -> " << enemy.Name << std::endl;
 	enemy.HP -= Character::DMG;
 }
+
 bool Character::isDead() {
 	return Character::HP <= 0 ? true : false;
 }
