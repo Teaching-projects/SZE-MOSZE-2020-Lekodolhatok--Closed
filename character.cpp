@@ -9,5 +9,5 @@ int Character::getHP() {
 }
 
 int Character::getDMG() {
-	return Character::getDMG();
+	return Character::DMG;
 }
