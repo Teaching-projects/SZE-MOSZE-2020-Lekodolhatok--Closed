@@ -5,7 +5,11 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-
+	if (argc != 7) {
+		cout << "Bad parameters!" << endl;
+		cout << "Use: ./a.out [Player1 name] [Player1 hp] [Player1 dmg] [Player2 name] [Player2 hp] [Player2 dmg]";
+		return 0;
+	}
 	vector<Character> characters;
 	for (int i = 0; i < argc / 3; i++)
 	{
@@ -24,7 +28,6 @@ int main(int argc, char* argv[]) {
 	int roundCounter = 0;
 	do
 	{
-
 		if (roundCounter + 1 >= characters.size()) {
 			characters[roundCounter].AttackEnemy(characters[0]);
 			roundCounter = 0;
@@ -41,4 +44,11 @@ int main(int argc, char* argv[]) {
 			}
 		}
 	} while (!isDead);
+
+	if (characters[0].isDead()) {
+		cout << characters[0].getName() << " died. " << characters[1].getName() << " win.";
+	}
+	else {
+		cout << characters[1].getName() << " died. " << characters[0].getName() << " win.";
+	}
 }
