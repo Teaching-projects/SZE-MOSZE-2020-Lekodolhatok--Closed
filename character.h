@@ -9,6 +9,7 @@ class Character {
 	int DMG;
 public:
 	Character(std::string name, int hp, int dmg);
+	~Character();
 	std::string getName();
 	int getHP();
 	int getDMG();
