@@ -46,9 +46,9 @@ int main(int argc, char* argv[]) {
 	} while (!isDead);
 
 	if (characters[0].isDead()) {
-		cout << characters[0].getName() << " died. " << characters[1].getName() << " win.";
+		cout << characters[0].getName() << " died. " << characters[1].getName() << " win." << endl;
 	}
 	else {
-		cout << characters[1].getName() << " died. " << characters[0].getName() << " win.";
+		cout << characters[1].getName() << " died. " << characters[0].getName() << " win." << endl;
 	}
 }
