@@ -16,8 +16,8 @@ int Character::getDMG() {
 	return Character::DMG;
 }
 
-void Character::AttackEnemy(Character* enemy) {
-	std::cout << Character::Name << " -> " << enemy->getName() << std::endl;
+void Character::AttackEnemy(Character& enemy) {
+	std::cout << Character::Name << " -> " << enemy.Name << std::endl;
 }
 std::ostream& operator<<(std::ostream& os, const Character& ch) {
 	os << ch.Name << ": HP: " << ch.HP << ", DMG: " << ch.DMG << std::endl;
