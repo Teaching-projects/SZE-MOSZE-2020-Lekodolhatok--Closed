@@ -7,7 +7,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
 	if (argc != 7) {
 		cout << "Bad parameters!" << endl;
-		cout << "Use: ./a.out [Player1 name] [Player1 hp] [Player1 dmg] [Player2 name] [Player2 hp] [Player2 dmg]";
+		cout << "Using: ./a.out [Player1 name] [Player1 hp] [Player1 dmg] [Player2 name] [Player2 hp] [Player2 dmg]" << endl;
 		return 0;
 	}
 	vector<Character> characters;
