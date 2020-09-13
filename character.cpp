@@ -10,7 +10,12 @@ std::string Character::getName() {
 
 void Character::AttackEnemy(Character& enemy) {
 	std::cout << Character::Name << " -> " << enemy.Name << std::endl;
-	enemy.HP -= Character::DMG;
+	if (enemy.HP - Character::DMG <= 0) {
+		enemy.HP = 0;
+	}
+	else {
+		enemy.HP -= Character::DMG;
+	}
 }
 
 bool Character::isDead() {
