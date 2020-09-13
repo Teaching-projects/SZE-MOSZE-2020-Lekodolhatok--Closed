@@ -1,12 +1,12 @@
 #include <iostream>
 #include "character.h"
-#include <list>
+#include <vector>
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
 
-	list<Character> characters;
+	vector<Character> characters;
 
 	for (int i = 0; i < argc / 3; i++)
 	{
@@ -25,12 +25,20 @@ int main(int argc, char* argv[]) {
 	int roundCounter = 0;
 	do
 	{
-
+		
 		if (roundCounter + 1 >= argc) {
+			characters[roundCounter].AttackEnemy(characters[0]);
 			roundCounter = 0;
 		}
 		else {
+			characters[roundCounter].AttackEnemy(characters[roundCounter+1]);
 			roundCounter += 1;
+		}
+		for (auto character : characters)
+		{
+			if (character.isDead()) {
+				isDead = true;
+			}
 		}
 	} while (!isDead);
 }
