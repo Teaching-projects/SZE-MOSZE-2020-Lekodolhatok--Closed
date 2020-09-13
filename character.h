@@ -14,6 +14,7 @@ public:
 	int getHP();
 	int getDMG();
 	void AttackEnemy(Character& enemy);
+	bool isDead();
 
 	friend std::ostream& operator<<(std::ostream& os, const Character& dt);
 };

@@ -20,6 +20,10 @@ void Character::AttackEnemy(Character& enemy) {
 	std::cout << Character::Name << " -> " << enemy.Name << std::endl;
 	enemy.HP -= Character::DMG;
 }
+bool Character::isDead() {
+	return Character::HP <= 0 ? true : false;
+}
+
 std::ostream& operator<<(std::ostream& os, const Character& ch) {
 	os << ch.Name << ": HP: " << ch.HP << ", DMG: " << ch.DMG << std::endl;
 	return os;
