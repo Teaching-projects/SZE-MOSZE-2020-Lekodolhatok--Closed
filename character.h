@@ -14,5 +14,7 @@ public:
 	int getHP();
 	int getDMG();
 	void AttackEnemy(Character* enemy);
+
+	friend std::ostream& operator<<(std::ostream& os, const Character& dt);
 };
 #endif // !CHARACTER_H
