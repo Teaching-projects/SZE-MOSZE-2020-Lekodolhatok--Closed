@@ -8,21 +8,29 @@ int main(int argc, char* argv[]) {
 
 	list<Character> characters;
 
-	for (int i = 0; i < argc/3; i++)
+	for (int i = 0; i < argc / 3; i++)
 	{
-		characters.push_back(Character((argv[(i*2) + 1], argv[(i*2) + 2], argv[(i*2) + 3]));
+		std::string name(argv[(i * 2) + 1 + i]);
+		int hp = std::atoi(argv[(i * 2) + 2 + i]);
+		int dmg = std::atoi(argv[(i * 2) + 3 + i]);
+		characters.push_back(Character(name, hp, dmg));
 	}
 
-//	Character ch1("Maple", 150, 10);
-	//Character ch2("Sally", 45, 30);
+	for (auto character : characters)
+	{
+		cout << character;
+	}
 
-	std::cout << characters[0];
-	std::cout << characters[0];
-
-	ch2.AttackEnemy(ch1);
-
+	bool isDead = false;
+	int roundCounter = 0;
 	do
 	{
 
-	} while (!ch1.isDead() || !ch2.isDead());
+		if (roundCounter + 1 >= argc) {
+			roundCounter = 0;
+		}
+		else {
+			roundCounter += 1;
+		}
+	} while (!isDead);
 }
