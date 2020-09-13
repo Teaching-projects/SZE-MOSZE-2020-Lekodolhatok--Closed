@@ -13,5 +13,6 @@ public:
 	std::string getName();
 	int getHP();
 	int getDMG();
+	void AttackEnemy(Character* enemy);
 };
 #endif // !CHARACTER_H

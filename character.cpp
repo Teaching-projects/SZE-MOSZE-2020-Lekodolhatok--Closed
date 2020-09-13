@@ -15,3 +15,7 @@ int Character::getHP() {
 int Character::getDMG() {
 	return Character::DMG;
 }
+
+void Character::AttackEnemy(Character* enemy) {
+	std::cout << Character::Name << " -> " << enemy->getName() << std::endl;
+}
