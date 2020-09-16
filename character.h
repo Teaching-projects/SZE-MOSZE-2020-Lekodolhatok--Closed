@@ -4,7 +4,7 @@
 #include <string>
 
 class Character {
-    std::string Name;
+    const std::string Name;
     int HP;
     int DMG;
 public:
