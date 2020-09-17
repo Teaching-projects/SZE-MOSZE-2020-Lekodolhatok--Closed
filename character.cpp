@@ -1,6 +1,6 @@
 #include "character.h"
 
-Character::Character(const std::string& name, const int& hp, const int& dmg) :Name(name), HP(hp), DMG(dmg) {}
+Character::Character(const std::string& name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg) {}
 
 Character::~Character() {}
 
@@ -8,7 +8,7 @@ const std::string& Character::getName() {
     return Character::Name;
 }
 
-void Character::attackEnemy(Character& enemy) {
+void Character::attackEnemy(Character& enemy) const{
     std::cout << Character::Name << " -> " << enemy.Name << std::endl;
     if (enemy.HP - Character::DMG <= 0) {
         enemy.HP = 0;

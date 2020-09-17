@@ -8,10 +8,10 @@ class Character {
     int HP;
     int DMG;
 public:
-    Character(const std::string& name, const int& hp, const int& dmg);
+    Character(const std::string& name, int hp, int dmg);
     ~Character();
     const std::string& getName();
-    void attackEnemy(Character& enemy);
+    void attackEnemy(Character& enemy) const;
     bool isDead() const;
     friend std::ostream& operator<<(std::ostream& os, const Character& dt);
 };
