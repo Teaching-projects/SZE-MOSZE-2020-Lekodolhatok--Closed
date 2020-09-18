@@ -2,8 +2,6 @@
 
 Character::Character(const std::string& name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg) {}
 
-Character::~Character() {}
-
 const std::string& Character::getName() {
     return Character::Name;
 }
