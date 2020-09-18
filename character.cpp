@@ -2,7 +2,7 @@
 
 Character::Character(const std::string& name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg) {}
 
-const std::string& Character::getName() {
+std::string Character::getName() const{
     return Character::Name;
 }
 
