@@ -1,8 +1,8 @@
 #include "character.h"
 
-Character::Character(const std::string& name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg) {}
+Character::Character(const std::string& name, int hp,const int dmg) :Name(name), HP(hp), DMG(dmg) {}
 
-std::string Character::getName() const{
+const std::string& Character::getName() const{
     return Character::Name;
 }
 
