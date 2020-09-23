@@ -4,7 +4,6 @@
 #include <string>
 #include <fstream>
 
-
 class Character {
     const std::string Name;
     int HP;
@@ -12,9 +11,10 @@ class Character {
 public:
     Character(const std::string& name, int hp, int dmg);
     const std::string& getName() const;
+    const int& remainingHP() const;
     void attackEnemy(Character& enemy) const;
     bool isDead() const;
-    static void parseUnit(std::string fname);
+    static Character parseUnit(std::string fname);
     friend std::ostream& operator<<(std::ostream& os, const Character& dt);
 };
 #endif // !CHARACTER_H
