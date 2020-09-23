@@ -4,16 +4,9 @@
 #include <exception>
 
 using namespace std;
-class FileManager : public exception
-{
-	virtual const char* fileNotFound() const throw()
-	{
-		return "File is not found!";
-	}
-} myex;
 
 int main(int argc, char* argv[]) {
-	if (argc != 2) {
+	if (argc != 3) {
 		cout << "Bad parameters!" << endl;
 		cout << "Using: ./a.out [Player1 file] [Player2 file]" << endl;
 		return 0;
@@ -21,16 +14,15 @@ int main(int argc, char* argv[]) {
 	vector<Character> characters;
 	try
 	{
-		for (int i = 0; i < 1; i++)
+		for (int i = 1; i < argc; i++)
 		{
-			characters.push_back(Character::parseUnit("kakarott.json"));
+			characters.push_back(Character::parseUnit(argv[i]));
 		}
 	}
 	catch (const std::exception& ex)
 	{
 		cout << ex.what() << endl;
 	}
-	characters.push_back(Character::parseUnit("vakarott.json"));
 	bool isDead = false;
 	int roundCounter = 0;
 	do
