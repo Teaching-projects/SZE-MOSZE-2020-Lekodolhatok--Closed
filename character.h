@@ -2,6 +2,8 @@
 #define CHARACTER_H
 #include <iostream>
 #include <string>
+#include <fstream>
+
 
 class Character {
     const std::string Name;
@@ -12,6 +14,7 @@ public:
     const std::string& getName() const;
     void attackEnemy(Character& enemy) const;
     bool isDead() const;
+    static void parseUnit(std::string fname);
     friend std::ostream& operator<<(std::ostream& os, const Character& dt);
 };
 #endif // !CHARACTER_H

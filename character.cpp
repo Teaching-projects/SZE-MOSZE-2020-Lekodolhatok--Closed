@@ -19,7 +19,9 @@ void Character::attackEnemy(Character& enemy) const{
 bool Character::isDead() const {
     return Character::HP <= 0;
 }
+void Character::parseUnit(std::string fname){
 
+}
 std::ostream& operator<<(std::ostream& os, const Character& ch) {
     os << ch.Name << ": HP: " << ch.HP << ", DMG: " << ch.DMG << std::endl;
     return os;
