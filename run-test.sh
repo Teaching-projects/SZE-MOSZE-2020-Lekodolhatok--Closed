@@ -10,11 +10,12 @@ do
     do
         if [[ "$i" != "$j" ]]
         then
-            echo "$i" "$j"
             ./a.out "$i" "$j" >> test/results.log
         fi
     done
 done
+
+cat test/results.log
 
 if cmp -s "test/results.log" "test/check.txt"; then
     echo "Everything is okay"
