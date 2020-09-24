@@ -15,12 +15,10 @@ do
     done
 done
 
-cat test/results.log
-echo "---"
-cat test/check.txt
-
-if cmp -s "test/results.log" "test/check.txt"; then
+if [ "$(diff "test/results.log" "test/check.txt")" == "" ]; then
     echo "Everything is okay"
+    exit 0
 else
     echo "Something went wrong :("
+    exit 1
 fi
