@@ -1,0 +1,12 @@
+name: 2-feladat
+
+on:
+  push 
+
+jobs:
+  Lekodolhatok:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: g++ -std=c++17 *.cpp
+			- run: ./run-test.sh
