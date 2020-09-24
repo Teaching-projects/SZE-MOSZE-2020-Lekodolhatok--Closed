@@ -1,3 +1,6 @@
 # SZE-MOSZE-2020-Lekodolhatok
 
-Ez egy konzolos játék. Ahol két játékos ütközik meg az indításkor megadott tulajdonságokkal (Név, hp, damage). Felváltva támadja egymást a két karaktar. Az gyõz aki életben marad! 
+Ez egy konzolos jÃ¡tÃ©k. Ahol kÃ©t jÃ¡tÃ©kos Ã¼tkÃ¶zik meg. A jÃ¡tÃ©kosok tulajdonsÃ¡gait az indÃ­tÃ¡skor megadott json-okbÃ³l olvassa ki a program. FelvÃ¡ltva tÃ¡madja egymÃ¡st a kÃ©t karakter. Az gyÅ‘z aki Ã©letben marad! 
+
+InditÃ¡s:
+`./a.out <Karakter1 json> <Karakter2 json>`
