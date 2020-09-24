@@ -16,4 +16,8 @@ do
     done
 done
 
-#./a.out kakarott.json
+if cmp -s "test/results.log" "test/check.txt"; then
+    echo "Everything is okay"
+else
+    echo "Something went wrong :("
+fi
