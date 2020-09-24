@@ -1,0 +1,11 @@
+name: 2. feladat
+
+on:
+	push
+
+jobs:
+	build:
+		run-on: ubuntu-latest
+		steps:
+			- uses: actions/checkout@v2
+			- run: g++ -Wall *.cpp
