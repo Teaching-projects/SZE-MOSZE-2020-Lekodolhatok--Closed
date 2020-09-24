@@ -15,10 +15,6 @@ do
     done
 done
 
-cat test/results.log
-echo "---"
-cat test/check.txt
-
 if [ "$(diff "test/results.log" "test/check.txt")" == "" ]; then
     echo "Everything is okay"
     exit 0
