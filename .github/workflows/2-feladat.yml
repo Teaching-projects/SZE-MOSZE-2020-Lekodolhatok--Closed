@@ -1,8 +1,11 @@
-name: 2 feladat
-on: push
+name: 2-feladat
+
+on:
+  push 
+
 jobs:
-	build:
-		runs-on: ubuntu-latest
-		steps:
-		- uses: actions/checkout@v2
-		- run: g++ -Wall *.cpp
+  Lekodolhatok:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: g++ -std=c++17 *.cpp
