@@ -22,6 +22,7 @@ int main(int argc, char* argv[]) {
 	catch (const std::exception& ex)
 	{
 		cout << ex.what() << endl;
+		return 1;
 	}
 	bool isDead = false;
 	int roundCounter = 0;
