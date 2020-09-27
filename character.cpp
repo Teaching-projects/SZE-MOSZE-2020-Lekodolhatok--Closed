@@ -22,9 +22,9 @@ Character Character::parseUnit(const std::string& fname) {
 	int hp = 0;
 	int dmg = 0;
 	std::string line;
-	const char* lineTypeName = "\"name\"";
-	const char* lineTypeHp = "\"hp\"";
-	const char* lineTypeDmg = "\"dmg\"";
+	const std::string lineTypeName = "\"name\"";
+	const std::string lineTypeHp = "\"hp\"";
+	const std::string lineTypeDmg = "\"dmg\"";
 	int findItem = 0;
 
 	std::ifstream unit("units/" + fname);
@@ -34,23 +34,23 @@ Character Character::parseUnit(const std::string& fname) {
 		while (std::getline(unit, line))
 		{
 			if (line.find(lineTypeName) != std::string::npos) {
-				line.erase(0, line.find(lineTypeName) + lineTypeName.length());
+				line.erase(0, line.find(lineTypeName) + lineTypeName.size());
 				line.erase(0, line.find("\"") + 1);
 				findItem = line.find("\"");
 				line.erase(findItem, findItem + 1);
 				name = line;
 			}
 			else if (line.find(lineTypeHp) != std::string::npos) {
-				line.erase(0, line.find(lineTypeHp) + lineTypeHp.length());
+				line.erase(0, line.find(lineTypeHp) + lineTypeHp.size());
 				line.erase(0, line.find(":") + 1);
 				findItem = line.find(",");
 				line.erase(findItem, findItem + 1);
 				hp = std::stoi(line);
 			}
 			else if (line.find(lineTypeDmg) != std::string::npos) {
-				line.erase(0, line.find(lineTypeDmg) + lineTypeDmg.length());
+				line.erase(0, line.find(lineTypeDmg) + lineTypeDmg.size());
 				line.erase(0, line.find(":") + 1);
-				dmg = std:stoi(line);
+				dmg = std::stoi(line);
 			}
 		}
 	}
