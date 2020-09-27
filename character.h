@@ -13,7 +13,7 @@ public:
     const int& remainingHP() const;
     void attackEnemy(Character& enemy) const;
     bool isDead() const;
-    static Character parseUnit(std::string fname);
+    static Character parseUnit(const std::string& fname);
     friend std::ostream& operator<<(std::ostream& os, const Character& dt);
 };
 #endif // !CHARACTER_H
