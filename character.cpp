@@ -1,4 +1,5 @@
 #include "character.h"
+#include <fstream>
 
 Character::Character(const std::string& name, int hp, const int dmg) :Name(name), HP(hp), DMG(dmg) {}
 
@@ -16,37 +17,40 @@ void Character::attackEnemy(Character& enemy) const {
 bool Character::isDead() const {
 	return Character::HP <= 0;
 }
-Character Character::parseUnit(std::string fname) {
+Character Character::parseUnit(const std::string& fname) {
 	std::string name;
 	int hp = 0;
 	int dmg = 0;
 	std::string line;
-	std::string lineType;
+	const char* lineTypeName = "\"name\"";
+	const char* lineTypeHp = "\"hp\"";
+	const char* lineTypeDmg = "\"dmg\"";
+	int findItem = 0;
+
 	std::ifstream unit("units/" + fname);
 
 	if (!unit.fail() && unit.is_open()) {
 
 		while (std::getline(unit, line))
 		{
-			if (line.find("\"name\"") != std::string::npos) {
-				lineType = "\"name\"";
-				line.erase(0, line.find(lineType) + lineType.length());
+			if (line.find(lineTypeName) != std::string::npos) {
+				line.erase(0, line.find(lineTypeName) + lineTypeName.length());
 				line.erase(0, line.find("\"") + 1);
-				line.erase(line.find("\""), line.find("\"") + 1);
+				findItem = line.find("\"");
+				line.erase(findItem, findItem + 1);
 				name = line;
 			}
-			else if (line.find("\"hp\"") != std::string::npos) {
-				lineType = "\"hp\"";
-				line.erase(0, line.find(lineType) + lineType.length());
+			else if (line.find(lineTypeHp) != std::string::npos) {
+				line.erase(0, line.find(lineTypeHp) + lineTypeHp.length());
 				line.erase(0, line.find(":") + 1);
-				line.erase(line.find(","), line.find(",") + 1);
-				hp = std::atoi(line.c_str());
+				findItem = line.find(",");
+				line.erase(findItem, findItem + 1);
+				hp = std::stoi(line);
 			}
-			else if (line.find("\"dmg\"") != std::string::npos) {
-				lineType = "\"dmg\"";
-				line.erase(0, line.find(lineType) + lineType.length());
+			else if (line.find(lineTypeDmg) != std::string::npos) {
+				line.erase(0, line.find(lineTypeDmg) + lineTypeDmg.length());
 				line.erase(0, line.find(":") + 1);
-				dmg = std::atoi(line.c_str());
+				dmg = std:stoi(line);
 			}
 		}
 	}

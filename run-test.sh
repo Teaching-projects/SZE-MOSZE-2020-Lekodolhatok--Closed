@@ -1,6 +1,6 @@
 #!/bin/bash
 
-touch test/results.log
+> test/results.log
 
 declare -a arr=("kakarott.json" "vakarott.json" "makarott.json")
 

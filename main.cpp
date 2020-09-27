@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
 	if (argc != 3) {
 		cout << "Bad parameters!" << endl;
 		cout << "Using: ./a.out [Player1 file] [Player2 file]" << endl;
-		return 0;
+		return 1;
 	}
 	vector<Character> characters;
 	try

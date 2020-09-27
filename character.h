@@ -2,7 +2,6 @@
 #define CHARACTER_H
 #include <iostream>
 #include <string>
-#include <fstream>
 
 class Character {
     const std::string Name;
