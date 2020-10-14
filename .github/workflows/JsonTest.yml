@@ -14,4 +14,4 @@ jobs:
       - name: make
         run: cd test && make
       - name: Teszt run
-        run: cd test/run_test
+        run: cd test/test
