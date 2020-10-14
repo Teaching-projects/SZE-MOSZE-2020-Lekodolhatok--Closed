@@ -62,7 +62,7 @@ std::map<std::string, std::string> Json::ParseUnit(std::string& line) {
 			else {
 				value = line.substr(third + 1);
 			}
-			value.erase(remove_if(value.begin(), value.end(), isspace));
+			value.erase(std::remove_if(value.begin(), value.end(), isspace));
 
 			d.insert(std::pair<std::string, std::string>(key, value));
 		}
