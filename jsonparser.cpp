@@ -1,4 +1,5 @@
 #include "jsonparser.h"
+#include <algorithm>
 
 std::map<std::string, std::string> Json::ParseUnit(std::ifstream& unit) {
 	std::map<std::string, std::string> d;
@@ -63,7 +64,6 @@ std::map<std::string, std::string> Json::ParseUnit(std::string& line) {
 				value = line.substr(third + 1);
 			}
 			value.erase(std::remove_if(value.begin(), value.end(), isspace));
-
 			d.insert(std::pair<std::string, std::string>(key, value));
 		}
 		line.erase(0, fourth + 1);
