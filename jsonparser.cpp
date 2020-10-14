@@ -15,7 +15,7 @@ std::map<std::string, std::string> Json::ParseUnit(std::ifstream& unit) {
 	if (!unit.fail() && unit.is_open()) {
 		while (std::getline(unit, line))
 		{
-			std::map<std::string, std::string>& seged = Json::ParseUnit(line);
+			std::map<std::string, std::string> seged = Json::ParseUnit(line);
 			d.insert(seged.begin(), seged.end());
 		}
 	}
