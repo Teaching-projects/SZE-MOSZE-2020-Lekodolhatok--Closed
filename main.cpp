@@ -1,5 +1,5 @@
 #include <iostream>
-#include "player.h"
+#include "character.h"
 #include <vector>
 #include <exception>
 
@@ -9,17 +9,17 @@ int main(int argc, char* argv[]) {
 	//rossz parameterek megadasa
 	if (argc != 3) {
 		cout << "Bad parameters!" << endl;
-		cout << "Using: ./a.out [Player1 file] [Player2 file]" << endl;
+		cout << "Using: ./a.out [Character1 file] [Character2 file]" << endl;
 		return 1;
 	}
-	//Player vektor letrehozasa
-	vector<Player> characters;
+	//Character vektor letrehozasa
+	vector<Character> characters;
 	//vektor feltoltese
 	try
 	{
 		for (int i = 1; i < argc; i++)
 		{
-			characters.push_back(Player::parseUnit(argv[i]));
+			characters.push_back(Character::parseUnit(argv[i]));
 		}
 	}
 	catch (const std::exception& ex)
@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
 		cout << ex.what() << endl;
 		return 1;
 	}
-	//kezdetben a Player nem halott
+	//kezdetben a Character nem halott
 	bool isDead = false;
 	//aktualis menet szama
 	int roundCounter = 0;

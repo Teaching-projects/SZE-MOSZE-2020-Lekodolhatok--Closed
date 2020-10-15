@@ -2,11 +2,25 @@
 #include <fstream>
 
 //konstruktor
-Character::Character(const std::string& name, int hp, const int dmg) :Name(name), HP(hp), DMG(dmg) {}
+Character::Character(const std::string& name, int hp, const int dmg) :Name(name), HP(hp), DMG(dmg) {
+	Character::MaxHP=HP;
+}
 
 //getter
 const std::string& Character::getName() const {
 	return Character::Name;
+}
+
+//szintnoveles
+//eletero es tamadoero a 10%-kal no
+//maximalis eletero az megvaltozott eletero erteket veszi fel
+//XP-t 100-zal csokkentjuk
+int Character::levelUp(){
+    Character::HP = Character::MaxHP*1.1*(Character::Level-1);
+    Character::DMG = Character::DMG*1.1*(Character::Level-1);
+    Character::MaxHP = Character::HP;
+    Character::Level++;
+    return XP-100;
 }
 
 //ha a tamadas soran az eletero 0 ala csokken, akkor az uj eletero 0 lesz, 
@@ -17,6 +31,10 @@ void Character::attackEnemy(Character& enemy) const {
 	}
 	else {
 		enemy.HP -= Character::DMG;
+		Character::XP += Character::DMG;
+        if (Character::XP>=100){
+            Character::levelUp();
+        }
 	}
 }
 
