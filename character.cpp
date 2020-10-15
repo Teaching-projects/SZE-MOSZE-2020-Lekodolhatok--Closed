@@ -33,7 +33,7 @@ void Character::attackEnemy(Character& enemy) const {
 		enemy.HP -= Character::DMG;
 		Character::XP += Character::DMG;
         if (Character::XP>=100){
-            Character::levelUp();
+        	levelUp();
         }
 	}
 }
