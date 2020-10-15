@@ -1,22 +1,25 @@
 #include <iostream>
-#include "character.h"
+#include "player.h"
 #include <vector>
 #include <exception>
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
+	//rossz parameterek megadasa
 	if (argc != 3) {
 		cout << "Bad parameters!" << endl;
 		cout << "Using: ./a.out [Player1 file] [Player2 file]" << endl;
 		return 1;
 	}
-	vector<Character> characters;
+	//Player vektor letrehozasa
+	vector<Player> characters;
+	//vektor feltoltese
 	try
 	{
 		for (int i = 1; i < argc; i++)
 		{
-			characters.push_back(Character::parseUnit(argv[i]));
+			characters.push_back(Player::parseUnit(argv[i]));
 		}
 	}
 	catch (const std::exception& ex)
@@ -24,29 +27,32 @@ int main(int argc, char* argv[]) {
 		cout << ex.what() << endl;
 		return 1;
 	}
+	//kezdetben a Player nem halott
 	bool isDead = false;
+	//aktualis menet szama
 	int roundCounter = 0;
+	//ciklus addig megy, mig a karakter nem lesz halott
 	do
 	{
-		if (roundCounter + 1 >= characters.size()) {
-			characters[roundCounter].attackEnemy(characters[0]);
-			roundCounter = 0;
+		if (roundCounter + 1 >= characters.size()) { //ha az aktualis kor szama + 1 meghaladja a vektor meretet
+			characters[roundCounter].attackEnemy(characters[0]); //akkor a vektor elso karakterevel zajlik le a csata
+			roundCounter = 0; //es az aktualis kor erteke 0 lesz
 		}
-		else {
-			characters[roundCounter].attackEnemy(characters[roundCounter + 1]);
-			roundCounter += 1;
+		else { //egyebkent
+			characters[roundCounter].attackEnemy(characters[roundCounter + 1]); //a sorban kovetkezo karakter lesz adadva
+			roundCounter += 1; //es eggyel no az aktualis kor szama
 		}
-		for (const auto& character : characters)
+		for (const auto& character : characters) //vegigmegy a ciklus a vektoron
 		{
-			if (character.isDead()) {
-				isDead = true;
+			if (character.isDead()) { //ha a karakter halott
+				isDead = true; //akkor a valtozo igaz erteket kap
 			}
 		}
 	} while (!isDead);
-	for (const auto& character : characters)
+	for (const auto& character : characters)//vegigmegy a ciklus a vektoron
 	{
-		if (!character.isDead()) {
+		if (!character.isDead()) { //ha a karakter nem halott
 			cout << character.getName() << " win. Remaining HP: " << character.remainingHP() << endl;
-		}
+		} //akkor kiirodik a neve es a maradek eletereje
 	}
 }
