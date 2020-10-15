@@ -1,11 +1,14 @@
 #include "character.h"
 #include <fstream>
 
+//Constructor of character class
 Character::Character(const std::string& name, int hp, const int dmg, const int attackspeed) :Name(name), HP(hp), DMG(dmg), AttackSpeed(attackspeed) {}
 
+//Getter of character's name
 const std::string& Character::getName() const {
 	return Character::Name;
 }
+ 
 void Character::attackByTimer(Character& enemy, int time) const {
 	if (time % Character::AttackSpeed == 0) {
 		Character::attackEnemy(enemy);
@@ -22,6 +25,7 @@ void Character::attackEnemy(Character& enemy) const {
 bool Character::isDead() const {
 	return Character::HP <= 0;
 }
+//Parsing an Unit from JSON file
 Character Character::parseUnit(const std::string& fname) {
 	std::string name;
 	int hp = 0;
