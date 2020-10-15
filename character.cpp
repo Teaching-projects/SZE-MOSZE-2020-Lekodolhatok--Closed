@@ -16,9 +16,10 @@ const std::string& Character::getName() const {
 //eletero es tamadoero a 10%-kal no
 //maximalis eletero az megvaltozott eletero erteket veszi fel
 //XP-t 100-zal csokkentjuk
-int Character::levelUp() {
-	Character::HP = Character::MaxHP * 1.1 * (Character::Level - 1);
-	Character::DMG = Character::DMG * 1.1 * (Character::Level - 1);
+double Character::levelUp() {
+	int lvl = Character::Level - 1;
+	Character::HP = Character::MaxHP * 1.1 * (lvl);
+	Character::DMG = Character::DMG * 1.1 * (lvl);
 	Character::MaxHP = Character::HP;
 	Character::Level++;
 	return XP - 100;
@@ -89,7 +90,7 @@ Character Character::parseUnit(const std::string& fname) {
 }
 
 //visszaadja a maradek eleterot
-const int& Character::remainingHP() const {
+const double& Character::remainingHP() const {
 	return Character::HP;
 }
 
