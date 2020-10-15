@@ -2,7 +2,7 @@
 #include <fstream>
 
 //konstruktor
-Character::Character(const std::string& name, int hp, const int dmg) :Name(name), HP(hp), DMG(dmg) {
+Character::Character(const std::string& name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg) {
 	Character::MaxHP=HP;
 }
 

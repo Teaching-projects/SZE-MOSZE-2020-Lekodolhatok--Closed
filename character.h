@@ -8,7 +8,7 @@ class Character {
     const std::string Name; //karakter neve
     int MaxHP; //maximalis eletero
     int HP; //eletero
-    const int DMG; //tamadoero
+    int DMG; //tamadoero
     int Level = 1; //aktualis szint, kezdeti erteke 1
     int XP = 0; //aktualis pontok, kezdeti erteke 0
 public:
