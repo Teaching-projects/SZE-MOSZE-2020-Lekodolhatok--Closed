@@ -6,6 +6,11 @@ Character::Character(const std::string& name, int hp, const int dmg, const int a
 const std::string& Character::getName() const {
 	return Character::Name;
 }
+void Character::attackByTimer(Character& enemy, int time) const {
+	if (time % Character::AttackSpeed == 0) {
+		Character::attackEnemy(enemy);
+	}
+}
 void Character::attackEnemy(Character& enemy) const {
 	if (enemy.HP - Character::DMG <= 0) {
 		enemy.HP = 0;
@@ -26,7 +31,7 @@ Character Character::parseUnit(const std::string& fname) {
 	const std::string lineTypeName = "\"name\"";
 	const std::string lineTypeHp = "\"hp\"";
 	const std::string lineTypeDmg = "\"dmg\"";
-	const std::string lineTypeAS = "\"attackspeed\"";
+	const std::string lineTypeAS = "\"attackcooldown\"";
 	int findItem = 0;
 
 	std::ifstream unit("units/" + fname);

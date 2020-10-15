@@ -8,11 +8,12 @@ class Character {
     int HP;
     const int DMG;
     const int AttackSpeed;
+    void attackEnemy(Character& enemy) const;
 public:
     Character(const std::string& name, int hp, const int dmg, const int attackspeed);
     const std::string& getName() const;
     const int& remainingHP() const;
-    void attackEnemy(Character& enemy) const;
+    void attackByTimer(Character& enemy,int time) const;
     bool isDead() const;
     static Character parseUnit(const std::string& fname);
     friend std::ostream& operator<<(std::ostream& os, const Character& dt);
