@@ -15,7 +15,7 @@ jobs:
       - name: Gpp Error
         run: g++ -Wall -Werror *.cpp
       - name: Valgrind Error
-        run: valgrind --error-exitcode=1 ./a.out units/kakarott.json units/makarott.json units/vakarott.json
+        run: valgrind --error-exitcode=1 ./a.out kakarott.json makarott.json
       - name: Cppchecks Error
         run: cppcheck *.cpp --enable=warning --error-exitcode=1
       - name: Error List
