@@ -7,8 +7,9 @@ class Character {
     const std::string Name;
     int HP;
     const int DMG;
+    const int AttackSpeed;
 public:
-    Character(const std::string& name, int hp, int dmg);
+    Character(const std::string& name, int hp, const int dmg, const int attackspeed);
     const std::string& getName() const;
     const int& remainingHP() const;
     void attackEnemy(Character& enemy) const;
