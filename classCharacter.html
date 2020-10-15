@@ -73,10 +73,12 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a513927b490b677a751e2c049b08fb39b"><td class="memItemLeft" align="right" valign="top"><a id="a513927b490b677a751e2c049b08fb39b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Character</b> (const std::string &amp;name, int hp, const int dmg, const int attackspeed)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#a513927b490b677a751e2c049b08fb39b">Character</a> (const std::string &amp;name, int hp, const int dmg, const int attackspeed)</td></tr>
+<tr class="memdesc:a513927b490b677a751e2c049b08fb39b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor sets the parameters of the character. <br /></td></tr>
 <tr class="separator:a513927b490b677a751e2c049b08fb39b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a631dd8d1785ff701f0fc51615bb017b2"><td class="memItemLeft" align="right" valign="top"><a id="a631dd8d1785ff701f0fc51615bb017b2"></a>
-const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const</td></tr>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#a631dd8d1785ff701f0fc51615bb017b2">getName</a> () const</td></tr>
+<tr class="memdesc:a631dd8d1785ff701f0fc51615bb017b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const getter of the character's name. <br /></td></tr>
 <tr class="separator:a631dd8d1785ff701f0fc51615bb017b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a453cd644678a603019d3bbe954d14d52"><td class="memItemLeft" align="right" valign="top"><a id="a453cd644678a603019d3bbe954d14d52"></a>
 const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>remainingHP</b> () const</td></tr>
@@ -84,14 +86,14 @@ const int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>remainingH
 <tr class="memitem:a8f006044e6a9285cafe806e1d985b06b"><td class="memItemLeft" align="right" valign="top"><a id="a8f006044e6a9285cafe806e1d985b06b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>attackByTimer</b> (<a class="el" href="classCharacter.html">Character</a> &amp;enemy, int time) const</td></tr>
 <tr class="separator:a8f006044e6a9285cafe806e1d985b06b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6581a9a16111768ae65603d060fca9d7"><td class="memItemLeft" align="right" valign="top"><a id="a6581a9a16111768ae65603d060fca9d7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isDead</b> () const</td></tr>
+<tr class="memitem:a6581a9a16111768ae65603d060fca9d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#a6581a9a16111768ae65603d060fca9d7">isDead</a> () const</td></tr>
+<tr class="memdesc:a6581a9a16111768ae65603d060fca9d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This checks if the unit is dead or not.  <a href="#a6581a9a16111768ae65603d060fca9d7">More...</a><br /></td></tr>
 <tr class="separator:a6581a9a16111768ae65603d060fca9d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aa54bb18ed07d0a3ec7ca5cbc271d43b8"><td class="memItemLeft" align="right" valign="top"><a id="aa54bb18ed07d0a3ec7ca5cbc271d43b8"></a>
-static <a class="el" href="classCharacter.html">Character</a>&#160;</td><td class="memItemRight" valign="bottom"><b>parseUnit</b> (const std::string &amp;fname)</td></tr>
+<tr class="memitem:aa54bb18ed07d0a3ec7ca5cbc271d43b8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCharacter.html">Character</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#aa54bb18ed07d0a3ec7ca5cbc271d43b8">parseUnit</a> (const std::string &amp;fname)</td></tr>
+<tr class="memdesc:aa54bb18ed07d0a3ec7ca5cbc271d43b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unit parsing from a JSON file.  <a href="#aa54bb18ed07d0a3ec7ca5cbc271d43b8">More...</a><br /></td></tr>
 <tr class="separator:aa54bb18ed07d0a3ec7ca5cbc271d43b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -100,6 +102,62 @@ Friends</h2></td></tr>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="classCharacter.html">Character</a> &amp;dt)</td></tr>
 <tr class="separator:a6e2500575583988edd2c2d7258daff47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6581a9a16111768ae65603d060fca9d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6581a9a16111768ae65603d060fca9d7">&#9670;&nbsp;</a></span>isDead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Character::isDead </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This checks if the unit is dead or not. </p>
+<dl class="section return"><dt>Returns</dt><dd>If unit health point is zero or lower. If lower than zero, it sets to default zero. </dd></dl>
+
+</div>
+</div>
+<a id="aa54bb18ed07d0a3ec7ca5cbc271d43b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa54bb18ed07d0a3ec7ca5cbc271d43b8">&#9670;&nbsp;</a></span>parseUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCharacter.html">Character</a> Character::parseUnit </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>fname</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unit parsing from a JSON file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>string of the filename</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns with a character type, with character parameters. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="character_8h_source.html">character.h</a></li>
 <li>character.cpp</li>
