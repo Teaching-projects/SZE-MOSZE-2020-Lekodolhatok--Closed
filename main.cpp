@@ -28,8 +28,8 @@ int main(int argc, char* argv[]) {
 	int timer = 0;
 	do
 	{
-		characters[0].attackByTimer(characters[1]);
-		characters[1].attackByTimer(characters[0]);
+		characters[0].attackByTimer(characters[1],timer);
+		characters[1].attackByTimer(characters[0],timer);
 
 		for (const auto& character : characters)
 		{

@@ -1,6 +1,6 @@
 {
   "name": "Makarott",
   "hp": 100000,
-  "attackspeed": 8.0,
+  "attackcooldown": 8.0,
   "dmg": 5500
 }

@@ -1,6 +1,6 @@
 {
   "name": "Vakarott",
   "hp": 20000,
-  "attackspeed": 9.0,
+  "attackcooldown": 9.0,
   "dmg": 12000
 }
