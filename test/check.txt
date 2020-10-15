@@ -2,5 +2,5 @@ Vakarott win. Remaining HP: 11000
 Makarott win. Remaining HP: 91000
 Kakarott win. Remaining HP: 38000
 Makarott win. Remaining HP: 88000
-Makarott win. Remaining HP: 44500
+Kakarott win. Remaining HP: 44500
 Vakarott win. Remaining HP: 14500
