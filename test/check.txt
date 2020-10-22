@@ -1,6 +1,6 @@
-Kakarott win. Remaining HP: 26000
-Makarott win. Remaining HP: 10000
 Kakarott win. Remaining HP: 14000
-Makarott win. Remaining HP: 52000
-Makarott win. Remaining HP: 19000
+Makarott win. Remaining HP: 28000
+Kakarott win. Remaining HP: 14000
+Makarott win. Remaining HP: 64000
+Makarott win. Remaining HP: 28000
 Makarott win. Remaining HP: 64000

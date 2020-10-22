@@ -25,23 +25,19 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 	bool isDead = false;
-	int roundCounter = 0;
+	int timer = 0;
 	do
 	{
-		if (roundCounter + 1 >= characters.size()) {
-			characters[roundCounter].attackEnemy(characters[0]);
-			roundCounter = 0;
-		}
-		else {
-			characters[roundCounter].attackEnemy(characters[roundCounter + 1]);
-			roundCounter += 1;
-		}
+		characters[0].attackByTimer(characters[1],timer);
+		characters[1].attackByTimer(characters[0],timer);
+
 		for (const auto& character : characters)
 		{
 			if (character.isDead()) {
 				isDead = true;
 			}
 		}
+		timer += 1;
 	} while (!isDead);
 	for (const auto& character : characters)
 	{
