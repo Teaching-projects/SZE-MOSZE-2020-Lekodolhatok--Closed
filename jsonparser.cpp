@@ -67,7 +67,7 @@ std::map<std::string, std::string> Json::ParseUnitString(std::string& line) {
 	return d;
 }
 std::map<std::string, std::string> Json::ParseUnitFileName(std::string& line) {
-	std::ifstream unit("units/" + line);
+	std::ifstream unit(line);
 	if (!unit.fail() && unit.is_open()) {
 		return Json::ParseUnitStream(unit);
 	}
