@@ -72,6 +72,6 @@ std::map<std::string, std::string> Json::ParseUnitFileName(std::string& line) {
 		return Json::ParseUnitStream(unit);
 	}
 	else {
-		return 0;
+		throw std::runtime_error("Could not open file: " + fname);
 	}
 }
