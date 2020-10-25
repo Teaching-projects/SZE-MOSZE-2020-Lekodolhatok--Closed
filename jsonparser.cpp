@@ -1,7 +1,7 @@
 #include "jsonparser.h"
 #include <algorithm>
 
-std::map<std::string, std::string> Json::ParseUnit(std::ifstream& unit) {
+std::map<std::string, std::string> Json::ParseUnitStream(std::ifstream& unit) {
 	std::map<std::string, std::string> d;
 	std::string name;
 	int hp = 0;
@@ -16,18 +16,13 @@ std::map<std::string, std::string> Json::ParseUnit(std::ifstream& unit) {
 	if (!unit.fail() && unit.is_open()) {
 		while (std::getline(unit, line))
 		{
-			std::map<std::string, std::string> seged = Json::ParseUnit(line);
+			std::map<std::string, std::string> seged = Json::ParseUnitString(line);
 			d.insert(seged.begin(), seged.end());
 		}
 	}
 	return d;
 }
-std::map<std::string, std::string> Json::ParseUnit(std::string& line) {
-	std::ifstream unit("units/" + line);
-	if (!unit.fail() && unit.is_open()) {
-		Json::ParseUnit(unit);
-	}
-
+std::map<std::string, std::string> Json::ParseUnitString(std::string& line) {
 	std::map<std::string, std::string> d;
 	int first;
 	int second;
@@ -70,4 +65,10 @@ std::map<std::string, std::string> Json::ParseUnit(std::string& line) {
 	} while (first > 0 && second > 0 && third > 0 && fourth > 0);
 
 	return d;
+}
+std::map<std::string, std::string> Json::ParseUnitFileName(std::string& line) {
+	std::ifstream unit("units/" + line);
+	if (!unit.fail() && unit.is_open()) {
+		return Json::ParseUnitString(unit);
+	}
 }

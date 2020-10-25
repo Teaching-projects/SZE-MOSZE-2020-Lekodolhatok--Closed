@@ -5,14 +5,14 @@
 #include <string>
 #include <fstream>
 
-TEST(JsonParser, FromFileName) {
+TEST(JsonParser, FileName) {
     std::map<std::string, std::string> example;
     example.insert(std::pair<std::string, std::string>("name", "Kakarott"));
     example.insert(std::pair<std::string, std::string>("hp", "50000"));
     example.insert(std::pair<std::string, std::string>("dmg", "9000"));
 
-    std::string s = "{\"name\" : \"Kakarott\",\"hp\" : \"50000\",\"dmg\" : \"9000\"}";
-    std::map<std::string, std::string> result = Json::ParseUnit(s);
+    std::string s = "kakarott.json";
+    std::map<std::string, std::string> result = Json::ParseUnitFileName(s);
     ASSERT_EQ(example, result);
 };
 TEST(JsonParser, FromStream) {
@@ -22,7 +22,7 @@ TEST(JsonParser, FromStream) {
     example.insert(std::pair<std::string, std::string>("dmg", "9000"));
 
     std::ifstream unit("../units/kakarott.json");
-    std::map<std::string, std::string> result = Json::ParseUnit(unit);
+    std::map<std::string, std::string> result = Json::ParseUnitStream(unit);
     ASSERT_EQ(example, result);
 };
 TEST(JsonParser, FromString) {
@@ -32,7 +32,7 @@ TEST(JsonParser, FromString) {
     example.insert(std::pair<std::string, std::string>("dmg", "9000"));
 
     std::string s = "{\"name\" : \"Kakarott\",\"hp\" : \"50000\",\"dmg\" : \"9000\"}";
-    std::map<std::string, std::string> result = Json::ParseUnit(s);
+    std::map<std::string, std::string> result = Json::ParseUnitString(s);
     ASSERT_EQ(example, result);
 };
 int main(int argc, char** argv)
