@@ -73,7 +73,7 @@ std::map<std::string, std::string> Json::ParseUnitFileName(std::string& line) {
 	}
 	else {
 		std::map<std::string, std::string> d;
-		d.insert(std::pair<std::string, std::string>(NULL, NULL));
+		d.insert(std::pair<std::string, std::string>("", ""));
 		return d;
 	}
 }
