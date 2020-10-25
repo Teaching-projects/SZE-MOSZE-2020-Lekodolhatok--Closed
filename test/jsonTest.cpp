@@ -11,7 +11,7 @@ TEST(JsonParser, FileName) {
     example.insert(std::pair<std::string, std::string>("hp", "50000"));
     example.insert(std::pair<std::string, std::string>("dmg", "9000"));
 
-    std::string s = "kakarott.json";
+    std::string s = "../units/kakarott.json";
     std::map<std::string, std::string> result = Json::ParseUnitFileName(s);
     ASSERT_EQ(example, result);
 };
