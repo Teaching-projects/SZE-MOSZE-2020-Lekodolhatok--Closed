@@ -17,7 +17,7 @@ TEST(JsonParser, FileName) {
 };
 TEST(JsonParser, FileNameHIBA) {
 	std::map<std::string, std::string> example;
-	example.insert(std::pair<std::string, std::string>(NULL, NULL));
+	example.insert(std::pair<std::string, std::string>("", ""));
 
 	std::string s = "../units/kakarott2.json";
 	std::map<std::string, std::string> result = Json::ParseUnitFileName(s);
