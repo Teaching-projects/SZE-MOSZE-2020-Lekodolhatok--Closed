@@ -1,5 +1,6 @@
 #include "character.h"
 #include <fstream>
+#include <cmath>
 
 //konstruktor
 Character::Character(const std::string& name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg), MaxHP(HP), XP(0) {}
