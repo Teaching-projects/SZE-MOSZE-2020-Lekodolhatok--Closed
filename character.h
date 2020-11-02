@@ -15,7 +15,7 @@ class Character {
 public:
 	Character(const std::string& name, int hp, int dmg); //konstruktor
 	const std::string& getName() const; //getter
-	const double& remainingHP() const; //maradek eletero
+	const int& remainingHP() const; //maradek eletero
 	void attackEnemy(Character& enemy); //ellenseg tamadasa
 	bool isDead() const; //meghalt-e a karakter
 	static Character parseUnit(const std::string& fname); //elemzes

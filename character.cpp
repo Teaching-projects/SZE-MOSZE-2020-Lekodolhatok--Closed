@@ -93,7 +93,7 @@ Character Character::parseUnit(const std::string& fname) {
 }
 
 //visszaadja a maradek eleterot
-const double& Character::remainingHP() const {
+const int& Character::remainingHP() const {
 	return Character::HP;
 }
 
