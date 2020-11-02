@@ -15,13 +15,13 @@ jobs:
       - name: Gpp Error
         run: g++ -Wall -Werror *.cpp
       - name: Valgrind Error
-        run: valgrind --error-exitcode=1 ./a.out kakarott.json makarott.json
+        run: valgrind --leak-check=full --error-exitcode=1 ./a.out kakarott.json makarott.json
       - name: Cppchecks Error
-        run: cppcheck *.cpp --enable=warning --error-exitcode=1
+        run: cppcheck *.cpp --enable=style --error-exitcode=1
       - name: Error List
-        run: cppcheck *.cpp --enable=warning --output-file=list.txt
+        run: cppcheck *.cpp --enable=performance --output-file=cppcheck.txt
       - name: Artifacting
         uses: actions/upload-artifact@v2
         with:
-          name: lists
-          path: ./list.txt 
+          name: cppcheck
+          path: ./cppcheck.txt 

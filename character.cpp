@@ -2,10 +2,7 @@
 #include <fstream>
 
 //konstruktor
-Character::Character(const std::string& name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg) {
-	Character::MaxHP = HP;
-	Character::XP = 0;
-}
+Character::Character(const std::string& name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg), MaxHP(HP), XP(0) {}
 
 //getter
 const std::string& Character::getName() const {
@@ -17,12 +14,17 @@ const std::string& Character::getName() const {
 //maximalis eletero az megvaltozott eletero erteket veszi fel
 //XP-t 100-zal csokkentjuk
 double Character::levelUp() {
-	int lvl = Character::Level - 1;
-	Character::HP = Character::MaxHP * 1.1 * (lvl);
-	Character::DMG = Character::DMG * 1.1 * (lvl);
-	Character::MaxHP = Character::HP;
-	Character::Level++;
-	return XP - 100;
+	int counter = XP % 100;
+	for (int i = 0; i < counter; i++)
+	{
+		HP = MaxHP * 1.1;
+		DMG = DMG * 1.1;
+		MaxHP = HP;
+		Level++;
+		XP -= 100;
+	}
+	
+	return XP;
 }
 
 //ha a tamadas soran az eletero 0 ala csokken, akkor az uj eletero 0 lesz, 
@@ -33,10 +35,10 @@ void Character::attackEnemy(Character& enemy) {
 	}
 	else {
 		enemy.HP -= Character::DMG;
-		Character::XP = Character::XP + Character::DMG;
-		if (Character::XP >= 100) {
-			Character::levelUp();
-		}
+	}
+	Character::XP = Character::XP + Character::DMG;
+	if (Character::XP >= 100) {
+		Character::levelUp();
 	}
 }
 
