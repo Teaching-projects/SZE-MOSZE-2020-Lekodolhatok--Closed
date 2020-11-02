@@ -10,7 +10,7 @@ class Character {
 	double HP; //eletero
 	double DMG; //tamadoero
 	int Level = 1; //aktualis szint, kezdeti erteke 1
-	double XP = 0; //aktualis pontok, kezdeti erteke 0
+	int XP = 0; //aktualis pontok, kezdeti erteke 0
 	double levelUp(); //szintnoveles
 public:
 	Character(const std::string& name, int hp, int dmg); //konstruktor

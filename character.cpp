@@ -15,7 +15,7 @@ const std::string& Character::getName() const {
 //maximalis eletero az megvaltozott eletero erteket veszi fel
 //XP-t 100-zal csokkentjuk
 double Character::levelUp() {
-	double counter = XP% 100;
+	int counter = XP % 100;
 	for (int i = 0; i < counter; i++)
 	{
 		HP = std::round((MaxHP * 1.1));
@@ -24,7 +24,7 @@ double Character::levelUp() {
 		Level++;
 		XP -= 100;
 	}
-	
+
 	return XP;
 }
 
