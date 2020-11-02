@@ -59,7 +59,6 @@ Character Character::parseUnit(const std::string& fname) {
 	const std::string lineTypeName = "\"name\"";
 	const std::string lineTypeHp = "\"hp\"";
 	const std::string lineTypeDmg = "\"dmg\"";
-	int findItem = 0;
 
 	std::ifstream unit("units/" + fname);
 
@@ -70,14 +69,14 @@ Character Character::parseUnit(const std::string& fname) {
 			if (line.find(lineTypeName) != std::string::npos) {
 				line.erase(0, line.find(lineTypeName) + lineTypeName.size());
 				line.erase(0, line.find("\"") + 1);
-				findItem = line.find("\"");
+				int findItem = line.find("\"");
 				line.erase(findItem, findItem + 1);
 				name = line;
 			}
 			else if (line.find(lineTypeHp) != std::string::npos) {
 				line.erase(0, line.find(lineTypeHp) + lineTypeHp.size());
 				line.erase(0, line.find(":") + 1);
-				findItem = line.find(",");
+				int findItem = line.find(",");
 				line.erase(findItem, findItem + 1);
 				hp = std::stoi(line);
 			}
