@@ -6,9 +6,9 @@
 //Character osztaly letrehozasa
 class Character {
 	const std::string Name; //karakter neve
-	double MaxHP; //maximalis eletero
-	double HP; //eletero
-	double DMG; //tamadoero
+	int MaxHP; //maximalis eletero
+	int HP; //eletero
+	int DMG; //tamadoero
 	int Level = 1; //aktualis szint, kezdeti erteke 1
 	int XP = 0; //aktualis pontok, kezdeti erteke 0
 	double levelUp(); //szintnoveles
