@@ -92,7 +92,7 @@ Character Character::parseUnit(const std::string& fname) {
 			else if (line.find(lineTypeAS) != std::string::npos) {
 				line.erase(0, line.find(lineTypeAS) + lineTypeAS.size());
 				line.erase(0, line.find(":") + 1);
-				findItem = line.find(",");
+				int findItem = line.find(",");
 				line.erase(findItem, findItem + 1);
 				attackspeed = std::stod(line);
 			}
