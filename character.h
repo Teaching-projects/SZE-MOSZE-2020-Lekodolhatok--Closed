@@ -38,7 +38,7 @@ public:
 	Character(const std::string& name, int hp, const int dmg, const int attackspeed);///<The constructor sets the parameters of the character
 	const std::string& getName() const;///< Const getter of the character's name
 	const int& remainingHP() const;
-	void attackByTimer(Character& enemy, int time) const;
+	void attackByTimer(Character& enemy, int time);
 	/**
 	 * \brief This checks if the unit is dead or not
 	 *

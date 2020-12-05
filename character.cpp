@@ -29,7 +29,7 @@ const std::string& Character::getName() const {
 	return Character::Name;
 }
  
-void Character::attackByTimer(Character& enemy, int time) const {
+void Character::attackByTimer(Character& enemy, int time) {
 	if (time % Character::AttackSpeed == 0) {
 		Character::attackEnemy(enemy);
 	}
