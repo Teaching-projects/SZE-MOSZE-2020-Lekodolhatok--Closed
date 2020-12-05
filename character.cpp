@@ -68,7 +68,6 @@ Character Character::parseUnit(const std::string& fname) {
 	const std::string lineTypeHp = "\"hp\"";
 	const std::string lineTypeDmg = "\"dmg\"";
 	const std::string lineTypeAS = "\"attackcooldown\"";
-	int findItem = 0;
 
 	std::ifstream unit("units/" + fname);
 
