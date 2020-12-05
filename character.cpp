@@ -3,7 +3,9 @@
 #include <cmath>
 
 //konstruktor
-Character::Character(const std::string& name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg), MaxHP(hp) {}
+Character::Character(const std::string& name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg) {
+	MaxHP = hp;
+}
 
 //getter
 const std::string& Character::getName() const {
