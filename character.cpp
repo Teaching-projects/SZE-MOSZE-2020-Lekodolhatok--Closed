@@ -3,9 +3,7 @@
 #include <cmath>
 
 //konstruktor
-Character::Character(const std::string& name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg) {
-	MaxHP = HP;
-}
+Character::Character(const std::string& name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg), MaxHP(hp) {}
 
 //getter
 const std::string& Character::getName() const {
@@ -16,7 +14,7 @@ const std::string& Character::getName() const {
 //eletero es tamadoero a 10%-kal no
 //maximalis eletero az megvaltozott eletero erteket veszi fel
 //XP-t 100-zal csokkentjuk
-double Character::levelUp() {
+int Character::levelUp() {
 	int counter = XP % 100;
 	for (int i = 0; i < counter; i++)
 	{
@@ -34,12 +32,14 @@ double Character::levelUp() {
 //egyebkent kivonodik belole a tamado ero
 void Character::attackEnemy(Character& enemy) {
 	if (enemy.HP - Character::DMG <= 0) {
-		enemy.HP = 0;
+		= 0;
+		Character::XP = Character::XP + enemy.HP;
 	}
 	else {
 		enemy.HP -= Character::DMG;
+		Character::XP = Character::XP + Character::DMG;
 	}
-	Character::XP = Character::XP + Character::DMG;
+
 	if (Character::XP >= 100) {
 		Character::levelUp();
 	}
