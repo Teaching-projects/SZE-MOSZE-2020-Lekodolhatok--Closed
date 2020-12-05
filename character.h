@@ -23,7 +23,7 @@ class Character {
 	const std::string Name; ///< This is hte name ofg the character
 	int MaxHP; //maximalis eletero
 	int HP; ///< The health of the hero
-	const int DMG; ///<The amount of damage he can hits with
+	int DMG; ///<The amount of damage he can hits with
 	int Level = 1; //aktualis szint, kezdeti erteke 1
 	int XP = 0; //aktualis pontok, kezdeti erteke 0
 	int levelUp(); //szintnoveles
@@ -38,7 +38,6 @@ public:
 	Character(const std::string& name, int hp, const int dmg, const int attackspeed);///<The constructor sets the parameters of the character
 	const std::string& getName() const;///< Const getter of the character's name
 	const int& remainingHP() const;
-	void attackEnemy(Character& enemy) const; //ellenseg tamadasa
 	void attackByTimer(Character& enemy, int time) const;
 	/**
 	 * \brief This checks if the unit is dead or not
