@@ -43,13 +43,13 @@ int main(int argc, char* argv[]) {
 			characters[roundCounter].attackEnemy(characters[roundCounter + 1]); //a sorban kovetkezo karakter lesz adadva
 			roundCounter += 1; //es eggyel no az aktualis kor szama
 		}
-		for (const auto& character : characters) //vegigmegy a ciklus a vektoron
+		/*for (const auto& character : characters) //vegigmegy a ciklus a vektoron
 		{
 			if (character.isDead()) { //ha a karakter halott
 				isDead = character.isDead(); //akkor a valtozo igaz erteket kap
 			}
-		}
-	} while (!isDead);
+		}*/
+	} while (!(characters[0].isDead() && characters[1].isDead()));
 	for (const auto& character : characters)//vegigmegy a ciklus a vektoron
 	{
 		if (!character.isDead()) { //ha a karakter nem halott
