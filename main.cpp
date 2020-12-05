@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
 	//ciklus addig megy, mig a karakter nem lesz halott
 	do
 	{
-		isDead = false;
+		//isDead = false;
 		if (roundCounter == 1) {
 			characters[roundCounter].attackEnemy(characters[0]); //akkor a vektor elso karakterevel zajlik le a csata
 			roundCounter = 0; //es az aktualis kor erteke 0 lesz
