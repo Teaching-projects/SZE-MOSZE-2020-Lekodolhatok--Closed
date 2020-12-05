@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
 				isDead = character.isDead(); //akkor a valtozo igaz erteket kap
 			}
 		}*/
-	} while (!(characters[0].isDead() && characters[1].isDead()));
+	} while (!(characters[0].isDead() || characters[1].isDead()));
 	for (const auto& character : characters)//vegigmegy a ciklus a vektoron
 	{
 		if (!character.isDead()) { //ha a karakter nem halott
