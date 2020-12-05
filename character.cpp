@@ -16,7 +16,7 @@ const std::string& Character::getName() const {
 //eletero es tamadoero a 10%-kal no
 //maximalis eletero az megvaltozott eletero erteket veszi fel
 //XP-t 100-zal csokkentjuk
-int Character::levelUp() {
+double Character::levelUp() {
 	int counter = XP % 100;
 	for (int i = 0; i < counter; i++)
 	{
@@ -35,13 +35,11 @@ int Character::levelUp() {
 void Character::attackEnemy(Character& enemy) {
 	if (enemy.HP - Character::DMG <= 0) {
 		enemy.HP = 0;
-		Character::XP = Character::XP + enemy.HP;
 	}
 	else {
 		enemy.HP -= Character::DMG;
-		Character::XP = Character::XP + Character::DMG;
 	}
-	
+	Character::XP = Character::XP + Character::DMG;
 	if (Character::XP >= 100) {
 		Character::levelUp();
 	}
@@ -61,7 +59,6 @@ Character Character::parseUnit(const std::string& fname) {
 	const std::string lineTypeName = "\"name\"";
 	const std::string lineTypeHp = "\"hp\"";
 	const std::string lineTypeDmg = "\"dmg\"";
-	int findItem = 0;
 
 	std::ifstream unit("units/" + fname);
 
@@ -72,14 +69,14 @@ Character Character::parseUnit(const std::string& fname) {
 			if (line.find(lineTypeName) != std::string::npos) {
 				line.erase(0, line.find(lineTypeName) + lineTypeName.size());
 				line.erase(0, line.find("\"") + 1);
-				findItem = line.find("\"");
+				int findItem = line.find("\"");
 				line.erase(findItem, findItem + 1);
 				name = line;
 			}
 			else if (line.find(lineTypeHp) != std::string::npos) {
 				line.erase(0, line.find(lineTypeHp) + lineTypeHp.size());
 				line.erase(0, line.find(":") + 1);
-				findItem = line.find(",");
+				int findItem = line.find(",");
 				line.erase(findItem, findItem + 1);
 				hp = std::stoi(line);
 			}

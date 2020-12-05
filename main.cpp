@@ -44,7 +44,9 @@ int main(int argc, char* argv[]) {
 		}
 		for (const auto& character : characters) //vegigmegy a ciklus a vektoron
 		{
-			isDead = character.isDead(); //akkor a valtozo igaz erteket kap
+			if (character.isDead()) { //ha a karakter halott
+				isDead = true; //akkor a valtozo igaz erteket kap
+			}
 		}
 	} while (!isDead);
 	for (const auto& character : characters)//vegigmegy a ciklus a vektoron

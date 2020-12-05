@@ -11,7 +11,7 @@ class Character {
 	int DMG; //tamadoero
 	int Level = 1; //aktualis szint, kezdeti erteke 1
 	int XP = 0; //aktualis pontok, kezdeti erteke 0
-	int levelUp(); //szintnoveles
+	double levelUp(); //szintnoveles
 public:
 	Character(const std::string& name, int hp, int dmg); //konstruktor
 	const std::string& getName() const; //getter
