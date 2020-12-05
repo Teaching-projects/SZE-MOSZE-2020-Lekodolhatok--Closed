@@ -2,16 +2,6 @@
 #include <fstream>
 #include <cmath>
 
-//konstruktor
-Character::Character(const std::string& name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg) {
-	MaxHP = hp;
-}
-
-//getter
-const std::string& Character::getName() const {
-	return Character::Name;
-}
-
 //szintnoveles
 //eletero es tamadoero a 10%-kal no
 //maximalis eletero az megvaltozott eletero erteket veszi fel
@@ -29,10 +19,24 @@ int Character::levelUp() {
 
 	return XP;
 }
+//Constructor of character class
+Character::Character(const std::string& name, int hp, const int dmg, const int attackspeed) :Name(name), HP(hp), DMG(dmg), AttackSpeed(attackspeed) {
+	MaxHP = hp;
+}
 
+//Getter of character's name
+const std::string& Character::getName() const {
+	return Character::Name;
+}
+ 
+void Character::attackByTimer(Character& enemy, int time) const {
+	if (time % Character::AttackSpeed == 0) {
+		Character::attackEnemy(enemy);
+	}
+}
 //ha a tamadas soran az eletero 0 ala csokken, akkor az uj eletero 0 lesz, 
 //egyebkent kivonodik belole a tamado ero
-void Character::attackEnemy(Character& enemy) {
+void Character::attackEnemy(Character& enemy) const {
 	if (enemy.HP - Character::DMG <= 0) {
 		enemy.HP = 0;
 		Character::XP = Character::XP + enemy.HP;
@@ -53,14 +57,18 @@ bool Character::isDead() const {
 }
 
 
+//Parsing an Unit from JSON file
 Character Character::parseUnit(const std::string& fname) {
 	std::string name;
 	int hp = 0;
 	int dmg = 0;
+	double attackspeed=0.0;
 	std::string line;
 	const std::string lineTypeName = "\"name\"";
 	const std::string lineTypeHp = "\"hp\"";
 	const std::string lineTypeDmg = "\"dmg\"";
+	const std::string lineTypeAS = "\"attackcooldown\"";
+	int findItem = 0;
 
 	std::ifstream unit("units/" + fname);
 
@@ -82,6 +90,13 @@ Character Character::parseUnit(const std::string& fname) {
 				line.erase(findItem, findItem + 1);
 				hp = std::stoi(line);
 			}
+			else if (line.find(lineTypeAS) != std::string::npos) {
+				line.erase(0, line.find(lineTypeAS) + lineTypeAS.size());
+				line.erase(0, line.find(":") + 1);
+				findItem = line.find(",");
+				line.erase(findItem, findItem + 1);
+				attackspeed = std::stod(line);
+			}
 			else if (line.find(lineTypeDmg) != std::string::npos) {
 				line.erase(0, line.find(lineTypeDmg) + lineTypeDmg.size());
 				line.erase(0, line.find(":") + 1);
@@ -92,7 +107,7 @@ Character Character::parseUnit(const std::string& fname) {
 	else {
 		throw std::runtime_error("Could not open file: " + fname); ;
 	}
-	return Character(name, hp, dmg);
+	return Character(name, hp, dmg, attackspeed);
 }
 
 //visszaadja a maradek eleterot
