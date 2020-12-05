@@ -6,12 +6,15 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
+	//rossz parameterek megadasa
 	if (argc != 3) {
 		cout << "Bad parameters!" << endl;
-		cout << "Using: ./a.out [Player1 file] [Player2 file]" << endl;
+		cout << "Using: ./a.out [Character1 file] [Character2 file]" << endl;
 		return 1;
 	}
+	//Character vektor letrehozasa
 	vector<Character> characters;
+	//vektor feltoltese
 	try
 	{
 		for (int i = 1; i < argc; i++)
@@ -24,25 +27,21 @@ int main(int argc, char* argv[]) {
 		cout << ex.what() << endl;
 		return 1;
 	}
-	bool isDead = false;
+	//kezdetben a Character nem halott
+	//ciklus addig megy, mig a karakter nem lesz halott
 	int timer = 0;
 	do
 	{
 		characters[0].attackByTimer(characters[1],timer);
 		characters[1].attackByTimer(characters[0],timer);
 
-		for (const auto& character : characters)
-		{
-			if (character.isDead()) {
-				isDead = true;
-			}
-		}
 		timer += 1;
-	} while (!isDead);
+	} while (!(characters[0].isDead() || characters[1].isDead()));
+
 	for (const auto& character : characters)
 	{
-		if (!character.isDead()) {
+		if (!character.isDead()) { //ha a karakter nem halott
 			cout << character.getName() << " win. Remaining HP: " << character.remainingHP() << endl;
-		}
+		} //akkor kiirodik a neve es a maradek eletereje
 	}
 }

@@ -3,15 +3,6 @@
 
 std::map<std::string, std::string> Json::ParseUnitStream(std::ifstream& unit) {
 	std::map<std::string, std::string> d;
-	std::string name;
-	int hp = 0;
-	int dmg = 0;
-
-	const std::string lineTypeName = "\"name\"";
-	const std::string lineTypeHp = "\"hp\"";
-	const std::string lineTypeDmg = "\"dmg\"";
-	int findItem = 0;
-
 	std::string line;
 	if (!unit.fail() && unit.is_open()) {
 		while (std::getline(unit, line))
@@ -33,7 +24,7 @@ std::map<std::string, std::string> Json::ParseUnitString(std::string& line) {
 		first = line.find("\"", 0);
 		second = line.find("\"", first + 1);
 		third = line.find("\"", second + 1);
-		fourth;
+		fourth=0;
 		bool noend = false;
 		int nextcomma = line.find(",", second + 1);
 		if (nextcomma < 0) {
