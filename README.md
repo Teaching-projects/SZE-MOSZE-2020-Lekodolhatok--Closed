@@ -4,3 +4,5 @@ Ez egy konzolos játék. Ahol két játékos ütközik meg. A játékosok tulajd
 
 Inditás:
 `./a.out <Karakter1 json> <Karakter2 json>`
+
+Github-pages link: https://teaching-projects.github.io/SZE-MOSZE-2020-Lekodolhatok/index.html

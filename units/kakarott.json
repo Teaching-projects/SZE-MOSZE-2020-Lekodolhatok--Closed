@@ -1,5 +1,6 @@
 {
-  "name" : "Kakarott",
-  "hp" : 50000,
-  "dmg" : 9000
+  "name": "Kakarott",
+  "hp": 50000,
+  "attackcooldown": 10.0,
+  "dmg": 9000
 }

@@ -1,5 +1,6 @@
 {
-  "name" : "Vakarott",
-  "hp" : 20000,
-  "dmg" : 12000
+  "name": "Vakarott",
+  "hp": 20000,
+  "attackcooldown": 9.0,
+  "dmg": 12000
 }

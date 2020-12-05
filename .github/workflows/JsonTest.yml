@@ -1,0 +1,17 @@
+name: Json Test
+
+on: push
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install gtest
+        run: sudo apt install libgtest-dev && cd /usr/src/gtest && sudo cmake . && sudo make && sudo cp *.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
+      - uses: actions/checkout@v2
+      - name: cmake
+        run: cd test && cmake .
+      - name: make
+        run: cd test && make
+      - name: Teszt run
+        run: cd test && ./test

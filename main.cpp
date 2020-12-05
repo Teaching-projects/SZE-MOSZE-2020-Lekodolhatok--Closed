@@ -28,29 +28,17 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 	//kezdetben a Character nem halott
-	//bool isDead = false;
-	//aktualis menet szama
-	int roundCounter = 0;
 	//ciklus addig megy, mig a karakter nem lesz halott
+	int timer = 0;
 	do
 	{
-		//isDead = false;
-		if (roundCounter == 1) {
-			characters[roundCounter].attackEnemy(characters[0]); //akkor a vektor elso karakterevel zajlik le a csata
-			roundCounter = 0; //es az aktualis kor erteke 0 lesz
-		}
-		else { //egyebkent
-			characters[roundCounter].attackEnemy(characters[roundCounter + 1]); //a sorban kovetkezo karakter lesz adadva
-			roundCounter += 1; //es eggyel no az aktualis kor szama
-		}
-		/*for (const auto& character : characters) //vegigmegy a ciklus a vektoron
-		{
-			if (character.isDead()) { //ha a karakter halott
-				isDead = character.isDead(); //akkor a valtozo igaz erteket kap
-			}
-		}*/
+		characters[0].attackByTimer(characters[1],timer);
+		characters[1].attackByTimer(characters[0],timer);
+
+		timer += 1;
 	} while (!(characters[0].isDead() || characters[1].isDead()));
-	for (const auto& character : characters)//vegigmegy a ciklus a vektoron
+
+	for (const auto& character : characters)
 	{
 		if (!character.isDead()) { //ha a karakter nem halott
 			cout << character.getName() << " win. Remaining HP: " << character.remainingHP() << endl;
