@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 	//kezdetben a Character nem halott
-	bool isDead = false;
+	//bool isDead = false;
 	//aktualis menet szama
 	int roundCounter = 0;
 	//ciklus addig megy, mig a karakter nem lesz halott
