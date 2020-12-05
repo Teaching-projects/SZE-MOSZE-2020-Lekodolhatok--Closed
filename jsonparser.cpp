@@ -3,12 +3,6 @@
 
 std::map<std::string, std::string> Json::ParseUnitStream(std::ifstream& unit) {
 	std::map<std::string, std::string> d;
-	std::string name;
-
-	const std::string lineTypeName = "\"name\"";
-	const std::string lineTypeHp = "\"hp\"";
-	const std::string lineTypeDmg = "\"dmg\"";
-
 	std::string line;
 	if (!unit.fail() && unit.is_open()) {
 		while (std::getline(unit, line))
