@@ -47,7 +47,7 @@ void Character::attackEnemy(Character& enemy) {
 
 //logikai fuggveny, visszaadja, hogy a karakter meghalt-e
 bool Character::isDead() const {
-	return Character::HP <= 0;
+	return Character::HP <= 0 ? true : false;
 }
 
 
