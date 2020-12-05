@@ -37,7 +37,6 @@ void Character::attackByTimer(Character& enemy, int time) const {
 //ha a tamadas soran az eletero 0 ala csokken, akkor az uj eletero 0 lesz, 
 //egyebkent kivonodik belole a tamado ero
 void Character::attackEnemy(Character& enemy) const {
->>>>>>> 56303fe0b28e4c4145dfe38fac7097ff934c54a9
 	if (enemy.HP - Character::DMG <= 0) {
 		enemy.HP = 0;
 		Character::XP = Character::XP + enemy.HP;
