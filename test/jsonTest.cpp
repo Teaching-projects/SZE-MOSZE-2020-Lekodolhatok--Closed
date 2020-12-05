@@ -10,6 +10,7 @@ TEST(JsonParser, FileName) {
 	example.insert(std::pair<std::string, std::string>("name", "Kakarott"));
 	example.insert(std::pair<std::string, std::string>("hp", "50000"));
 	example.insert(std::pair<std::string, std::string>("dmg", "9000"));
+	example.insert(std::pair<std::string, std::string>("attackcooldown", "10.0"));
 
 	std::string s = "../units/kakarott.json";
 	std::map<std::string, std::string> result = Json::ParseUnitFileName(s);
@@ -28,6 +29,7 @@ TEST(JsonParser, FromStream) {
 	example.insert(std::pair<std::string, std::string>("name", "Kakarott"));
 	example.insert(std::pair<std::string, std::string>("hp", "50000"));
 	example.insert(std::pair<std::string, std::string>("dmg", "9000"));
+	example.insert(std::pair<std::string, std::string>("attackcooldown", "10.0"));
 
 	std::ifstream unit("../units/kakarott.json");
 	std::map<std::string, std::string> result = Json::ParseUnitStream(unit);
@@ -38,8 +40,9 @@ TEST(JsonParser, FromString) {
 	example.insert(std::pair<std::string, std::string>("name", "Kakarott"));
 	example.insert(std::pair<std::string, std::string>("hp", "50000"));
 	example.insert(std::pair<std::string, std::string>("dmg", "9000"));
+	example.insert(std::pair<std::string, std::string>("attackcooldown", "10.0"));
 
-	std::string s = "{\"name\" : \"Kakarott\",\"hp\" : \"50000\",\"dmg\" : \"9000\"}";
+	std::string s = "{\"name\" : \"Kakarott\",\"hp\" : \"50000\",\"dmg\" : \"9000\",\"attackcooldown\" : \"10.0\"}";
 	std::map<std::string, std::string> result = Json::ParseUnitString(s);
 	ASSERT_EQ(example, result);
 };
