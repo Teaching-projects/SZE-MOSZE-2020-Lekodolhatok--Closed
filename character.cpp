@@ -32,7 +32,7 @@ int Character::levelUp() {
 //egyebkent kivonodik belole a tamado ero
 void Character::attackEnemy(Character& enemy) {
 	if (enemy.HP - Character::DMG <= 0) {
-		= 0;
+		enemy.HP = 0;
 		Character::XP = Character::XP + enemy.HP;
 	}
 	else {
