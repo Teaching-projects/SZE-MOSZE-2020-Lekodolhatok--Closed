@@ -28,7 +28,7 @@ Character::Character(const std::string& name, int hp, const int dmg, const int a
 const std::string& Character::getName() const {
 	return Character::Name;
 }
- 
+
 void Character::attackByTimer(Character& enemy, int time) {
 	if (time % Character::AttackSpeed == 0) {
 		Character::attackEnemy(enemy);
@@ -62,14 +62,14 @@ Character Character::parseUnit(const std::string& fname) {
 	std::string name;
 	int hp = 0;
 	int dmg = 0;
-	double attackspeed=0.0;
+	double attackspeed = 0.0;
 	std::string line;
 	const std::string lineTypeName = "\"name\"";
 	const std::string lineTypeHp = "\"hp\"";
 	const std::string lineTypeDmg = "\"dmg\"";
 	const std::string lineTypeAS = "\"attackcooldown\"";
 
-	std::ifstream unit("units/" + fname);
+	std::ifstream unit(fname);
 
 	if (!unit.fail() && unit.is_open()) {
 
@@ -113,9 +113,35 @@ Character Character::parseUnit(const std::string& fname) {
 const int& Character::remainingHP() const {
 	return Character::HP;
 }
+int Character::getMaxHP() const {
+	return MaxHP;
+}
+int Character::getDMG() const {
+	return DMG;
+}
+int Character::getLevel() const {
+	return Level;
+}
+int Character::getXP() const {
+	return XP;
+}
+const int Character::getAttackSpeed() const {
+	return AttackSpeed;
+}
 
 
 std::ostream& operator<<(std::ostream& os, const Character& ch) {
-	os << ch.Name << ": HP: " << ch.HP << ", DMG: " << ch.DMG << std::endl;
+	os << ch.Name << ": HP: " << ch.HP << ", DMG: " << ch.DMG << ", AS: " << ch.AttackSpeed << std::endl;
 	return os;
 }
+bool operator==(const Character& en, const Character& dt) {
+	if (en.getName() == dt.getName() || en.remainingHP() == dt.remainingHP() || en.getMaxHP() == dt.getMaxHP()
+		|| en.getDMG() == dt.getDMG() || en.getLevel() == dt.getLevel() || en.getXP() == dt.getXP()
+		|| en.getAttackSpeed() == dt.getAttackSpeed()) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+

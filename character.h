@@ -54,6 +54,12 @@ public:
 	 */
 	static Character parseUnit(const std::string& fname); //elemzes
 	friend std::ostream& operator<<(std::ostream& os, const Character& dt);
+	friend bool operator==(const Character& en, const Character& dt);
+	int getMaxHP() const;
+	int getDMG() const;
+	int getLevel() const;
+	int getXP() const;
+	const int getAttackSpeed() const;
 
 };
 #endif // !CHARACTER_H

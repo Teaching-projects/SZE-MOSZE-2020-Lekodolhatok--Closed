@@ -1,4 +1,4 @@
-name: Json Test
+name: Unit And Json Test
 
 on: push
 
@@ -13,5 +13,7 @@ jobs:
         run: cd test && cmake .
       - name: make
         run: cd test && make
-      - name: Teszt run
-        run: cd test && ./test
+      - name: Json Teszt run
+        run: cd test && ./jsontest
+      - name: Unit Teszt run
+        run: cd test && ./unittest
