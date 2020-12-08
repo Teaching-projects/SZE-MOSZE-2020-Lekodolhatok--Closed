@@ -135,7 +135,7 @@ std::ostream& operator<<(std::ostream& os, const Character& ch) {
 	return os;
 }
 friend bool operator==(const Character& en, const Character& dt) {
-	if (en.getName() == dt.getName || en.remainingHP() == dt.remainingHP() || en.getMaxHP() == dt.getMaxHP()
+	if (en.getName() == dt.getName() || en.remainingHP() == dt.remainingHP() || en.getMaxHP() == dt.getMaxHP()
 		|| en.getDMG() == dt.getDMG() || en.getLevel() == dt.getLevel() || en.getXP() == dt.getXP()
 		|| en.getAttackSpeed() == dt.getAttackSpeed()) {
 		return true;
