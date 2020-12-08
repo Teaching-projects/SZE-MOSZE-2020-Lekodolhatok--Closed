@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include <iostream>
 #include "../character.h"
+#include <iostream>
 #include <map>
 #include <string>
 
@@ -52,6 +52,49 @@ TEST(Character, ParseUnitTest) {
 	Character result = Character::parseUnit("kakarott.json");
 
 	ASSERT_EQ(example, result);
+};
+
+TEST(Character, getMAXHPTest) {
+
+	int example = 50000;
+
+	Character result = Character("Kakarott", 50000, 9000, 10.0);
+
+	ASSERT_EQ(example, result.getMaxHP());
+};
+
+TEST(Character, getDMGTest) {
+
+	int example = 9000;
+
+	Character result = Character("Kakarott", 50000, 9000, 10.0);
+
+	ASSERT_EQ(example, result.getDMG());
+};
+
+TEST(Character, getLevelTest) {
+
+	int example = 1;
+
+	Character result = Character("Kakarott", 50000, 9000, 10.0);
+
+	ASSERT_EQ(example, result.getLevel());
+};
+TEST(Character, getXPTest) {
+
+	int example = 0;
+
+	Character result = Character("Kakarott", 50000, 9000, 10.0);
+
+	ASSERT_EQ(example, result.getXP());
+};
+TEST(Character, getAttackSpeedTest) {
+
+	int example = 10.0;
+
+	Character result = Character("Kakarott", 50000, 9000, 10.0);
+
+	ASSERT_EQ(example, result.getAttackSpeed());
 };
 int main(int argc, char** argv)
 {
