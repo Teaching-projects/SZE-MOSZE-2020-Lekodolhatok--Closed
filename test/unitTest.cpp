@@ -12,7 +12,7 @@ TEST(Character, getNameTest) {
 
 	ASSERT_EQ(example, result.getName());
 };
-TEST(Character, remainingHPTest) {
+/*TEST(Character, remainingHPTest) {
 
 	int example = 50000;
 
@@ -52,7 +52,7 @@ TEST(Character, ParseUnitTest) {
 	Character result = Character::parseUnit("kakarott.json");
 
 	ASSERT_EQ(example, result);
-};
+};*/
 int main(int argc, char** argv)
 {
 	::testing::InitGoogleTest(&argc, argv);
