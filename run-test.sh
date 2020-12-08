@@ -2,7 +2,7 @@
 
 > test/results.log
 
-declare -a arr=("kakarott.json" "vakarott.json" "makarott.json")
+declare -a arr=("units/kakarott.json" "units/vakarott.json" "units/makarott.json")
 
 for i in "${arr[@]}"
 do
