@@ -49,7 +49,7 @@ TEST(Character, isDeadTest) {
 TEST(Character, ParseUnitTest) {
 	Character example = Character("Kakarott", 50000, 9000, 10.0);
 
-	Character result = Character::parseUnit("kakarott.json");
+	Character result = Character::parseUnit("../units/kakarott.json");
 
 	ASSERT_EQ(example, result);
 };

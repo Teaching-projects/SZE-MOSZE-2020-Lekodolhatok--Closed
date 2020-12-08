@@ -69,7 +69,7 @@ Character Character::parseUnit(const std::string& fname) {
 	const std::string lineTypeDmg = "\"dmg\"";
 	const std::string lineTypeAS = "\"attackcooldown\"";
 
-	std::ifstream unit("units/" + fname);
+	std::ifstream unit(fname);
 
 	if (!unit.fail() && unit.is_open()) {
 
