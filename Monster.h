@@ -33,7 +33,7 @@ class Monster {
 			 *
 			 * \param He waits for a monster type enemy
 			 */
-	void attack(Monster& enemy);///< This method can take a damage to another monster if his/her Health is not zero
+	virtual void attack(Monster& enemy);///< This method can take a damage to another monster if his/her Health is not zero
 public:
 	Monster(const std::string& name, int hp, const int dmg, const int attackspeed);///<The constructor sets the parameters of the monster
 
@@ -42,6 +42,10 @@ public:
 	const int& getHealthPoints() const;
 
 	const int& getDamage() const;
+
+	const double& getAttackCoolDown() const;
+
+	void fightTilDeath(Monster& other);
 
 	bool isAlive() const;
 	/**

@@ -39,7 +39,63 @@ const int& Monster::getDamage() const {
 	return Monster::DMG;
 }
 
+const double& getAttackCoolDown const {
+	return Monster::AttackSpeed;
+}
 
+void fightTilDeath(Monster& other) {
+	double player1 = this->getAttackCoolDown();
+	double player2 = other.getAttackCoolDown();
+
+	while (this->isAlive() && other.isAlive())
+	{
+		if (player1 >= player2)
+		{
+			player1 -= player2;
+			player2 = 0;
+		}
+		else
+		{
+			player2 -= player1;
+			player1 = 0;
+
+		}
+
+		if ((player1 == 0) && (player2 != 0))
+		{
+			this->Attack(other);
+			player1 = this->getAttackCoolDown();
+		}
+		else if ((player2 == 0) && (player1 != 0))
+		{
+			other.Attack(*this);
+			player2 = other.getAttackCoolDown();
+		}
+		else if ((player1 == 0) && (player2 == 0))
+		{
+			this->Attack(other);
+
+			if (other.isAlive())
+			{
+				other.Attack(*this);
+
+			}
+			else
+			{
+				break;
+			}
+			player1 = this->getAttackCoolDown();
+			player2 = other.getAttackCoolDown();
+		}
+	}
+}
+
+}
+
+//logikai fuggveny, visszaadja, hogy a karakter meghalt-e
+bool Monster::isAlive() const {
+	return Monster::HP > 0 ? true : false;
+}
  
 void Monster::attackByTimer(Monster& enemy, int time) {
 	if (time % Monster::AttackSpeed == 0) {
@@ -49,7 +105,7 @@ void Monster::attackByTimer(Monster& enemy, int time) {
 
 //ha a tamadas soran az eletero 0 ala csokken, akkor az uj eletero 0 lesz, 
 //egyebkent kivonodik belole a tamado ero
-void Monster::attack(Monster& enemy) {
+virtual void Monster::attack(Monster& enemy) {
 	if (enemy.HP - Monster::DMG <= 0) {
 		enemy.HP = 0;
 		Monster::XP = Monster::XP + enemy.HP;
@@ -62,11 +118,6 @@ void Monster::attack(Monster& enemy) {
 	if (Monster::XP >= 100) {
 		Monster::levelUp();
 	}
-}
-
-//logikai fuggveny, visszaadja, hogy a karakter meghalt-e
-bool Monster::isAlive() const {
-	return Monster::HP > 0 ? true : false;
 }
 
 
