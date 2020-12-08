@@ -1,9 +1,8 @@
 #include <gtest/gtest.h>
+#include <iostream>
 #include "../character.h"
-#include <any>
 #include <map>
 #include <string>
-#include <fstream>
 
 TEST(Character, getName) {
 
