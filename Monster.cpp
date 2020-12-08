@@ -2,28 +2,8 @@
 #include <fstream>
 #include <cmath>
 
-//szintnoveles
-//eletero es tamadoero a 10%-kal no
-//maximalis eletero az megvaltozott eletero erteket veszi fel
-//XP-t 100-zal csokkentjuk
-int Monster::levelUp() {
-	int counter = XP % 100;
-	for (int i = 0; i < counter; i++)
-	{
-		HP = std::round((MaxHP * 1.1));
-		DMG = std::round((DMG * 1.1));
-		MaxHP = HP;
-		Level++;
-		XP -= 100;
-	}
-
-	return XP;
-}
-
 //Constructor of monster class
-Monster::Monster(const std::string& name, int hp, const int dmg, const int attackspeed) :Name(name), HP(hp), DMG(dmg), AttackSpeed(attackspeed) {
-	MaxHP = hp;
-}
+Monster::Monster(const std::string& name, int hp, const int dmg, const int attackspeed) :Name(name), HP(hp), DMG(dmg), AttackSpeed(attackspeed);
 
 //Getter of monster's name
 const std::string& Monster::getName() const {

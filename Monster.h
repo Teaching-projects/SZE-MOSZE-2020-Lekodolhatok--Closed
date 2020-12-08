@@ -21,19 +21,14 @@
  //This is the class of the monsters
 class Monster {
 	const std::string Name; ///< This is the name of the monster
-	int MaxHP; //maximalis eletero
 	int HP; ///< The health of the monster
 	int DMG; ///<The amount of damage he can hits with
-	int Level = 1; //aktualis szint, kezdeti erteke 1
-	int XP = 0; //aktualis pontok, kezdeti erteke 0
-	int levelUp(); //szintnoveles
 	const int AttackSpeed; ///<This is the attackspeed of the monster
 	/**
 			 * \brief Taking damage to a target monster
 			 *
 			 * \param He waits for a monster type enemy
 			 */
-	virtual void attack(Monster& enemy);///< This method can take a damage to another monster if his/her Health is not zero
 public:
 	Monster(const std::string& name, int hp, const int dmg, const int attackspeed);///<The constructor sets the parameters of the monster
 
@@ -46,6 +41,8 @@ public:
 	const double& getAttackCoolDown() const;
 
 	void fightTilDeath(Monster& other);
+
+	virtual void attack(Monster& enemy);///< This method can take a damage to another monster if his/her Health is not zero
 
 	bool isAlive() const;
 	/**
