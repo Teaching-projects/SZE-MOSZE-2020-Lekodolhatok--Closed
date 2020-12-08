@@ -3,5 +3,5 @@ project (SZE-MOSZE-2020)
 find_package(GTest REQUIRED)
 
 include_directories(${GTEST_INCLUDE_DIRS})
-add_executable(test jsonTest.cpp ../jsonparser.cpp)
+add_executable(test jsonTest.cpp ../jsonparser.cpp unitTest.cpp)
 target_link_libraries(test ${GTEST_LIBRARIES} pthread)

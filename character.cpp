@@ -28,7 +28,7 @@ Character::Character(const std::string& name, int hp, const int dmg, const int a
 const std::string& Character::getName() const {
 	return Character::Name;
 }
- 
+
 void Character::attackByTimer(Character& enemy, int time) {
 	if (time % Character::AttackSpeed == 0) {
 		Character::attackEnemy(enemy);
@@ -62,7 +62,7 @@ Character Character::parseUnit(const std::string& fname) {
 	std::string name;
 	int hp = 0;
 	int dmg = 0;
-	double attackspeed=0.0;
+	double attackspeed = 0.0;
 	std::string line;
 	const std::string lineTypeName = "\"name\"";
 	const std::string lineTypeHp = "\"hp\"";
@@ -116,6 +116,6 @@ const int& Character::remainingHP() const {
 
 
 std::ostream& operator<<(std::ostream& os, const Character& ch) {
-	os << ch.Name << ": HP: " << ch.HP << ", DMG: " << ch.DMG << std::endl;
+	os << ch.Name << ": HP: " << ch.HP << ", DMG: " << ch.DMG << ", AS: " << ch.AttackSpeed << std::endl;
 	return os;
 }
