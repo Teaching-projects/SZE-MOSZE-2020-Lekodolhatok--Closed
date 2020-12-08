@@ -113,9 +113,35 @@ Character Character::parseUnit(const std::string& fname) {
 const int& Character::remainingHP() const {
 	return Character::HP;
 }
+int Character::getMaxHP() const {
+	return MaxHP;
+}
+int Character::getDMG() const {
+	return DMG;
+}
+int Character::getLevel() const {
+	return Level;
+}
+int Character::getXP() const {
+	return XP;
+}
+const int Character::getAttackSpeed() const {
+	return AttackSpeed;
+}
 
 
 std::ostream& operator<<(std::ostream& os, const Character& ch) {
 	os << ch.Name << ": HP: " << ch.HP << ", DMG: " << ch.DMG << ", AS: " << ch.AttackSpeed << std::endl;
 	return os;
 }
+friend bool operator==(const Character& en, const Character& dt) {
+	if (en.getName() == dt.getName || en.remainingHP() == dt.remainingHP() || en.getMaxHP() == dt.getMaxHP()
+		|| en.getDMG() == dt.getDMG() || en.getLevel() == dt.getLevel() || en.getXP() == dt.getXP()
+		|| en.getAttackSpeed() == dt.getAttackSpeed()) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
