@@ -51,7 +51,7 @@ TEST(Character, ParseUnitTest) {
 
 	Character result = Character::parseUnit("kakarott.json");
 
-	ASSERT_EQ(example, result.isDead());
+	ASSERT_EQ(example, result);
 };
 int main(int argc, char** argv)
 {
