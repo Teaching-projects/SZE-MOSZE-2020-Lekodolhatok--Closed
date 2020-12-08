@@ -8,7 +8,7 @@ TEST(Character, getNameTest) {
 
 	std::string example = "Kakarott";
 
-	Character* result = new Character("Kakarott", 50000, 9000, 10.0);
+	Character result = Character("Kakarott", 50000, 9000, 10.0);
 
 	ASSERT_EQ(example, result.getName());
 };
@@ -16,15 +16,15 @@ TEST(Character, remainingHPTest) {
 
 	int example = 50000;
 
-	Character* result = new Character("Kakarott", 50000, 9000, 10.0);
+	Character result = Character("Kakarott", 50000, 9000, 10.0);
 
 	ASSERT_EQ(example, result.remainingHP());
 };
 TEST(Character, attackByTimerTest) {
 	int example = 32000;
 
-	Character* enemy = new Character("Vakarott", 50000, 9000, 5.0);
-	Character* result = new Character("Kakarott", 50000, 9000, 10.0);
+	Character enemy = Character("Vakarott", 50000, 9000, 5.0);
+	Character result = Character("Kakarott", 50000, 9000, 10.0);
 
 	for (int i = 0; i < 20; i++)
 	{
@@ -36,20 +36,20 @@ TEST(Character, attackByTimerTest) {
 TEST(Character, isDeadTest) {
 	bool example = true;
 
-	Character* result = new Character("Kakarott", -1, 9000, 10.0);
+	Character result = Character("Kakarott", -1, 9000, 10.0);
 
 	ASSERT_EQ(example, result.isDead());
 
 	bool example2 = false;
-	Character* result2 = new Character("Kakarott", 50000, 9000, 10.0);
+	Character result2 = Character("Kakarott", 50000, 9000, 10.0);
 	ASSERT_EQ(example2, result2.isDead());
 
 
 };
 TEST(Character, ParseUnitTest) {
-	Character* example = new Character("Kakarott", 50000, 9000, 10.0);
+	Character example = Character("Kakarott", 50000, 9000, 10.0);
 
-	Character* result = Character::parseUnit("kakarott.json");
+	Character result = Character::parseUnit("kakarott.json");
 
 	ASSERT_EQ(example, result.isDead());
 };
