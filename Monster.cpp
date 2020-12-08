@@ -1,4 +1,4 @@
-#include "character.h"
+#include "Monster.h"
 #include <fstream>
 #include <cmath>
 
@@ -6,7 +6,7 @@
 //eletero es tamadoero a 10%-kal no
 //maximalis eletero az megvaltozott eletero erteket veszi fel
 //XP-t 100-zal csokkentjuk
-int Character::levelUp() {
+int Monster::levelUp() {
 	int counter = XP % 100;
 	for (int i = 0; i < counter; i++)
 	{
@@ -19,46 +19,59 @@ int Character::levelUp() {
 
 	return XP;
 }
-//Constructor of character class
-Character::Character(const std::string& name, int hp, const int dmg, const int attackspeed) :Name(name), HP(hp), DMG(dmg), AttackSpeed(attackspeed) {
+
+//Constructor of monster class
+Monster::Monster(const std::string& name, int hp, const int dmg, const int attackspeed) :Name(name), HP(hp), DMG(dmg), AttackSpeed(attackspeed) {
 	MaxHP = hp;
 }
 
-//Getter of character's name
-const std::string& Character::getName() const {
-	return Character::Name;
+//Getter of monster's name
+const std::string& Monster::getName() const {
+	return Monster::Name;
 }
+
+//visszaadja a maradek eleterot
+const int& Monster::getHealthPoints() const {
+	return Monster::HP;
+}
+
+const int& Monster::getDamage() const {
+	return Monster::DMG;
+}
+
+
  
-void Character::attackByTimer(Character& enemy, int time) {
-	if (time % Character::AttackSpeed == 0) {
-		Character::attackEnemy(enemy);
+void Monster::attackByTimer(Monster& enemy, int time) {
+	if (time % Monster::AttackSpeed == 0) {
+		Monster::attack(enemy);
 	}
 }
+
 //ha a tamadas soran az eletero 0 ala csokken, akkor az uj eletero 0 lesz, 
 //egyebkent kivonodik belole a tamado ero
-void Character::attackEnemy(Character& enemy) {
-	if (enemy.HP - Character::DMG <= 0) {
+void Monster::attack(Monster& enemy) {
+	if (enemy.HP - Monster::DMG <= 0) {
 		enemy.HP = 0;
-		Character::XP = Character::XP + enemy.HP;
+		Monster::XP = Monster::XP + enemy.HP;
 	}
 	else {
-		enemy.HP -= Character::DMG;
-		Character::XP = Character::XP + Character::DMG;
+		enemy.HP -= Monster::DMG;
+		Monster::XP = Monster::XP + Monster::DMG;
 	}
 
-	if (Character::XP >= 100) {
-		Character::levelUp();
+	if (Monster::XP >= 100) {
+		Monster::levelUp();
 	}
 }
 
 //logikai fuggveny, visszaadja, hogy a karakter meghalt-e
-bool Character::isDead() const {
-	return Character::HP <= 0 ? true : false;
+bool Monster::isAlive() const {
+	return Monster::HP > 0 ? true : false;
 }
 
 
 //Parsing an Unit from JSON file
-Character Character::parseUnit(const std::string& fname) {
+Monster Monster::parse(const std::string& fname) {
 	std::string name;
 	int hp = 0;
 	int dmg = 0;
@@ -106,16 +119,11 @@ Character Character::parseUnit(const std::string& fname) {
 	else {
 		throw std::runtime_error("Could not open file: " + fname); ;
 	}
-	return Character(name, hp, dmg, attackspeed);
-}
-
-//visszaadja a maradek eleterot
-const int& Character::remainingHP() const {
-	return Character::HP;
+	return Monster(name, hp, dmg, attackspeed);
 }
 
 
-std::ostream& operator<<(std::ostream& os, const Character& ch) {
+std::ostream& operator<<(std::ostream& os, const Monster& ch) {
 	os << ch.Name << ": HP: " << ch.HP << ", DMG: " << ch.DMG << std::endl;
 	return os;
 }

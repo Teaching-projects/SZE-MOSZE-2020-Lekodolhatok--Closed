@@ -1,19 +1,19 @@
 #include "jsonparser.h"
 #include <algorithm>
 
-std::map<std::string, std::string> Json::ParseUnitStream(std::ifstream& unit) {
+std::map<std::string, std::string> Json::parseFromStream(std::ifstream& unit) {
 	std::map<std::string, std::string> d;
 	std::string line;
 	if (!unit.fail() && unit.is_open()) {
 		while (std::getline(unit, line))
 		{
-			std::map<std::string, std::string> seged = Json::ParseUnitString(line);
+			std::map<std::string, std::string> seged = Json::parseFromString(line);
 			d.insert(seged.begin(), seged.end());
 		}
 	}
 	return d;
 }
-std::map<std::string, std::string> Json::ParseUnitString(std::string& line) {
+std::map<std::string, std::string> Json::parseFromString(std::string& line) {
 	std::map<std::string, std::string> d;
 	int first;
 	int second;
@@ -57,10 +57,10 @@ std::map<std::string, std::string> Json::ParseUnitString(std::string& line) {
 
 	return d;
 }
-std::map<std::string, std::string> Json::ParseUnitFileName(std::string& line) {
+std::map<std::string, std::string> Json::parseFromFile(std::string& line) {
 	std::ifstream unit(line);
 	if (!unit.fail() && unit.is_open()) {
-		return Json::ParseUnitStream(unit);
+		return Json::parseFromStream(unit);
 	}
 	else {
 		std::map<std::string, std::string> d;
