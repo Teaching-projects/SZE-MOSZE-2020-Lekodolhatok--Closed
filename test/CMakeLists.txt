@@ -4,6 +4,8 @@ find_package(GTest REQUIRED)
 
 include_directories(${GTEST_INCLUDE_DIRS})
 add_executable(jsontest jsonTest.cpp ../jsonparser.cpp)
-add_executable(unittest unitTest.cpp ../character.cpp)
+target_link_libraries(jsontest ${GTEST_LIBRARIES} pthread)
 
-target_link_libraries(test ${GTEST_LIBRARIES} pthread)
+
+add_executable(unittest unitTest.cpp ../character.cpp)
+target_link_libraries(unittest ${GTEST_LIBRARIES} pthread)
