@@ -114,58 +114,6 @@ void Monster::attackByTimer(Monster& enemy, int time) {
 }*/
 
 
-//Parsing an Unit from JSON file
-Monster Monster::parse(const std::string& fname) {
-	std::string name;
-	int hp = 0;
-	int dmg = 0;
-	int attackspeed=0;
-	std::string line;
-	const std::string lineTypeName = "\"name\"";
-	const std::string lineTypeHp = "\"hp\"";
-	const std::string lineTypeDmg = "\"dmg\"";
-	const std::string lineTypeAS = "\"attackcooldown\"";
-
-	std::ifstream unit("units/" + fname);
-
-	if (!unit.fail() && unit.is_open()) {
-
-		while (std::getline(unit, line))
-		{
-			if (line.find(lineTypeName) != std::string::npos) {
-				line.erase(0, line.find(lineTypeName) + lineTypeName.size());
-				line.erase(0, line.find("\"") + 1);
-				int findItem = line.find("\"");
-				line.erase(findItem, findItem + 1);
-				name = line;
-			}
-			else if (line.find(lineTypeHp) != std::string::npos) {
-				line.erase(0, line.find(lineTypeHp) + lineTypeHp.size());
-				line.erase(0, line.find(":") + 1);
-				int findItem = line.find(",");
-				line.erase(findItem, findItem + 1);
-				hp = std::stoi(line);
-			}
-			else if (line.find(lineTypeAS) != std::string::npos) {
-				line.erase(0, line.find(lineTypeAS) + lineTypeAS.size());
-				line.erase(0, line.find(":") + 1);
-				int findItem = line.find(",");
-				line.erase(findItem, findItem + 1);
-				attackspeed = std::stoi(line);
-			}
-			else if (line.find(lineTypeDmg) != std::string::npos) {
-				line.erase(0, line.find(lineTypeDmg) + lineTypeDmg.size());
-				line.erase(0, line.find(":") + 1);
-				dmg = std::stoi(line);
-			}
-		}
-	}
-	else {
-		throw std::runtime_error("Could not open file: " + fname); ;
-	}
-	return Monster(name, hp, dmg, attackspeed);
-}
-
 
 std::ostream& operator<<(std::ostream& os, const Monster& ch) {
 	os << ch.Name << ": HP: " << ch.HP << ", DMG: " << ch.DMG << std::endl;
