@@ -2,17 +2,11 @@
 
 > test/results.log
 
-declare -a arr=("kakarott.json" "vakarott.json" "makarott.json")
+declare -a arr=("scenario1.json" "scenario2.json")
 
 for i in "${arr[@]}"
 do
-    for j in "${arr[@]}"
-    do
-        if [[ "$i" != "$j" ]]
-        then
-            ./a.out "$i" "$j" >> test/results.log
-        fi
-    done
+    ./a.out "$i" >> test/results.log
 done
 
 if [ "$(diff "test/results.log" "test/check.txt")" == "" ]; then

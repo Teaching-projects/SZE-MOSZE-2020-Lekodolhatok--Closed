@@ -1,0 +1,6 @@
+{
+  "name": "Monster 1",
+  "hp": 300,
+  "attackcooldown": 8.0,
+  "dmg": 5500
+}

@@ -1,0 +1,7 @@
+{
+  "hero": "units/vakarott.json",
+  "monsters": [
+    "monsters/Zombie.json",
+    "monsters/Monster1.json"
+  ]
+}
