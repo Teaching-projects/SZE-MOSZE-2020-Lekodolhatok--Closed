@@ -20,7 +20,7 @@ public:
 
 	int lvlUp(); //szintnoveles
 
-    void Attack(Monster& enemy);
+    void Attack(Monster& enemy) = 0;
 
     static Hero parse(const std::string& fileName);
 };
