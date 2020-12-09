@@ -2,7 +2,7 @@
 #define HERO_H
 
 #include "Monster.h"
-
+#include "JSON.h"
 class Hero : public Monster {
 private:
     int MaxHP; //maximalis eletero

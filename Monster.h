@@ -17,6 +17,7 @@
 #define MONSTER_H
 #include <iostream>
 #include <string>
+#include "JSON.h"
 
  //This is the class of the monsters
 class Monster {
