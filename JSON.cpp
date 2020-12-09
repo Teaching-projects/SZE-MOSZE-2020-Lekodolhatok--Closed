@@ -1,19 +1,30 @@
-#include "jsonparser.h"
+#include "JSON.h"
 #include <algorithm>
 
-std::map<std::string, std::string> Json::parseFromStream(std::ifstream& unit) {
-	std::map<std::string, std::string> d;
+JSON::JSON(const mapType& m) : Map(m) {};
+
+
+JSON JSON::parseFromStream(std::ifstream& unit) {
+	mapType d;
 	std::string line;
 	if (!unit.fail() && unit.is_open()) {
 		while (std::getline(unit, line))
 		{
-			std::map<std::string, std::string> seged = Json::parseFromString(line);
-			d.insert(seged.begin(), seged.end());
+			char* c = new char[line.length() + 1];
+			//strcpy(c, line.c_str());
+			//std::map<std::string, std::string> seged = JSON::parseFromString(c);
+			//d.insert(seged.begin(), seged.end());
+			delete[] c;
+
 		}
 	}
-	return d;
+	return JSON(d);
 }
-std::map<std::string, std::string> Json::parseFromString(std::string& line) {
+bool JSON::count(const std::string& key) const {
+	return Map.count(key);
+}
+std::map<std::string, std::string> JSON::parseFromString(char*& c) {
+	std::string line(c);
 	std::map<std::string, std::string> d;
 	int first;
 	int second;
@@ -24,7 +35,7 @@ std::map<std::string, std::string> Json::parseFromString(std::string& line) {
 		first = line.find("\"", 0);
 		second = line.find("\"", first + 1);
 		third = line.find("\"", second + 1);
-		fourth=0;
+		fourth = 0;
 		bool noend = false;
 		int nextcomma = line.find(",", second + 1);
 		if (nextcomma < 0) {
@@ -57,14 +68,15 @@ std::map<std::string, std::string> Json::parseFromString(std::string& line) {
 
 	return d;
 }
-std::map<std::string, std::string> Json::parseFromFile(std::string& line) {
+JSON JSON::parseFromFile(char*& c) {
+	std::string line(c);
 	std::ifstream unit(line);
 	if (!unit.fail() && unit.is_open()) {
-		return Json::parseFromStream(unit);
+		return JSON::parseFromStream(unit);
 	}
 	else {
-		std::map<std::string, std::string> d;
+		mapType d;
 		d.insert(std::pair<std::string, std::string>("", ""));
-		return d;
+		return JSON(d);
 	}
 }
