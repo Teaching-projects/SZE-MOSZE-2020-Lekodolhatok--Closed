@@ -66,6 +66,7 @@ public:
 	 * \return If unit health point is zero or lower. If lower than zero, it sets to default zero.
 	 */
 	
+	static Monster parse(const std::string& fname); //elemzes
 	friend std::ostream& operator<<(std::ostream& os, const Monster& dt);
 
 };
