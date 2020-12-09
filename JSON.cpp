@@ -60,7 +60,7 @@ std::map<std::string, std::string> JSON::parseFromString(std::string& line) {
 			}
 			value.erase(remove(value.begin(), value.end(), ' '), value.end());
 			if (num) {
-				d.insert(std::pair<std::string, int>(key, std::stoi(value));
+				d.insert(std::pair<std::string, int>(key, std::stoi(value)));
 			}
 			else {
 				d.insert(std::pair<std::string, std::string>(key,value));
