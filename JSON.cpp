@@ -1,4 +1,5 @@
 #include "JSON.h"
+#include <variant>
 #include <algorithm>
 
 JSON::JSON(const mapType& m) : Map(m) {};
@@ -50,7 +51,7 @@ std::map<std::string, std::string> JSON::parseFromString(std::string& line) {
 		}
 		if (first >= 0 && second >= 0 && third >= 0) {
 			std::string key = line.substr(first + 1, second - first - 1);
-			valueType value;
+			std::variant<std::string,int> value;
 			if (!noend) {
 				if (num) {
 					value = std::stoi(line.substr(third + 1, fourth - third - 1));
@@ -69,7 +70,7 @@ std::map<std::string, std::string> JSON::parseFromString(std::string& line) {
 				}
 			}
 			value.erase(remove(value.begin(), value.end(), ' '), value.end());
-			d.insert(pairType(key, value));
+			d.insert(std::pair<std::string,std::variant<std::string,int>>(key, value));
 		}
 		line.erase(0, fourth + 1);
 	} while (first > 0 && second > 0 && third > 0 && fourth > 0);

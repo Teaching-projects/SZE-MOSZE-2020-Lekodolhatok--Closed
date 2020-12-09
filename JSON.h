@@ -8,9 +8,6 @@
 #include <variant>
 #include <list>
 typedef std::map<std::string, std::variant<std::string, int, double>> mapType;
-typedef std::pair<std::string, std::variant<std::string, int, double>> pairType;
-typedef std::variant<std::string, int> valueType;
-
 
 
 class JSON {
