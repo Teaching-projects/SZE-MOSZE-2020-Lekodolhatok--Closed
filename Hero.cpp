@@ -32,6 +32,16 @@ void Hero::Attack(Monster& enemy) {
 		lvlUp();
 	}
 }
+
+Hero Hero::parse(const std::string& s) {
+	JSON file = JSON::parseFromFile(s);
+	int dmg=file.get<int>("dmg");
+	int hp = file.get<int>("hp");
+	int as = file.get<int>("attackcooldown");
+	std::string name = file.get<int>("name");
+	return Hero(name, hp, dmg, as);
+}
+
 //szintnoveles
 //eletero es tamadoero a 10%-kal no
 //maximalis eletero az megvaltozott eletero erteket veszi fel
