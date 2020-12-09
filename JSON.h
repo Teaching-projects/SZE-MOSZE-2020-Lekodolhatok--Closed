@@ -17,7 +17,7 @@ private:
 	static bool isNumeric(const std::string& input);
 	JSON(const mapType& m);
 public:
-	static std::map<std::string, std::string> parseFromString(std::string&);
+	static mapType parseFromString(std::string&);
 	static JSON parseFromFile(char*&);
 	static JSON parseFromStream(std::ifstream&);
 	bool count(const std::string& key) const;

@@ -20,8 +20,8 @@ JSON JSON::parseFromStream(std::ifstream& unit) {
 bool JSON::count(const std::string& key) const {
 	return Map.count(key);
 }
-std::map<std::string, std::string> JSON::parseFromString(std::string& line) {
-	std::map<std::string, std::string> d;
+mapType JSON::parseFromString(std::string& line) {
+	mapType d;
 	int first;
 	int second;
 	int third;
