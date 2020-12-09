@@ -22,6 +22,6 @@ public:
 
     void Attack(Monster& enemy);
 
-    static Hero parse(const char*& fileName);
+    static Hero parse(char*& fileName);
 };
 #endif // !HERO_H

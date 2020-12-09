@@ -33,7 +33,7 @@ void Hero::Attack(Monster& enemy) {
 	}
 }
 
-Hero Hero::parse(const char*& s) {
+Hero Hero::parse(char*& s) {
 	JSON file = JSON::parseFromFile(s);
 	int dmg=file.get<int>("dmg");
 	int hp = file.get<int>("hp");
