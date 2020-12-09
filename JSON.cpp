@@ -11,8 +11,10 @@ JSON JSON::parseFromStream(std::ifstream& unit) {
 		while (std::getline(unit, line))
 		{
 			char* c = new char[line.length() + 1];
-			strdup(strncpy(c, line.c_str(), sizeof(c)));
-			//strcpy(c, line.c_str());
+			for (int i = 0; i < line.size(); i++)
+			{
+				c[i] = line[i];
+			}
 			std::map<std::string, std::string> seged = JSON::parseFromString(c);
 			d.insert(seged.begin(), seged.end());
 			delete[] c;
