@@ -10,15 +10,8 @@ JSON JSON::parseFromStream(std::ifstream& unit) {
 	if (!unit.fail() && unit.is_open()) {
 		while (std::getline(unit, line))
 		{
-			char* c = new char[line.length() + 1];
-			for (int i = 0; i < line.size(); i++)
-			{
-				c[i] = line[i];
-			}
-			std::map<std::string, std::string> seged = JSON::parseFromString(c);
+			std::map<std::string, std::string> seged = JSON::parseFromString(line);
 			d.insert(seged.begin(), seged.end());
-			delete[] c;
-
 		}
 	}
 	return JSON(d);
@@ -26,8 +19,7 @@ JSON JSON::parseFromStream(std::ifstream& unit) {
 bool JSON::count(const std::string& key) const {
 	return Map.count(key);
 }
-std::map<std::string, std::string> JSON::parseFromString(char*& c) {
-	std::string line(c);
+std::map<std::string, std::string> JSON::parseFromString(std::string& line) {
 	std::map<std::string, std::string> d;
 	int first;
 	int second;
