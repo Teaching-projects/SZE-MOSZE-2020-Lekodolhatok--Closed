@@ -44,7 +44,7 @@ public:
 
 	void fightTilDeath(Monster& other);
 
-	virtual void Attack(Monster& enemy);///< This method can take a damage to another monster if his/her Health is not zero
+	virtual void Attack(Monster& enemy) = 0;///< This method can take a damage to another monster if his/her Health is not zero
 
 	void setDMG(int d);
 
