@@ -165,7 +165,9 @@ Monster Monster::parse(const std::string& fname) {
 	}
 	return Monster(name, hp, dmg, attackspeed);
 }
-
+void Monster::Attack(Monster& enemy) {
+	enemy.getAttacked(this->getDamage());
+}
 
 std::ostream& operator<<(std::ostream& os, const Monster& ch) {
 	os << ch.Name << ": HP: " << ch.HP << ", DMG: " << ch.DMG << std::endl;
