@@ -1,5 +1,6 @@
 #include "Hero.h"
 #include "JSON.h"
+#include <cmath>
 #include <iostream>
 
 Hero::Hero(const std::string& name, int hp, const int dmg, const int attackspeed) : Monster(name, hp, dmg, attackspeed) {
