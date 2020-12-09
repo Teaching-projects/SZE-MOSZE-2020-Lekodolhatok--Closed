@@ -33,8 +33,13 @@ void Hero::Attack(Monster& enemy) {
 	}
 }
 
-Hero Hero::parse(char*& s) {
-	JSON file = JSON::parseFromFile(s);
+Hero Hero::parse(std::string& s) {
+	char c = new char[s.length()];
+	for (int i = 0; i < s.length; i++)
+	{
+		c[i] = s[i];
+	}
+	JSON file = JSON::parseFromFile(c);
 	int dmg=file.get<int>("dmg");
 	int hp = file.get<int>("hp");
 	int as = file.get<int>("attackcooldown");
