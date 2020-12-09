@@ -38,7 +38,7 @@ Hero Hero::parse(char*& s) {
 	int dmg=file.get<int>("dmg");
 	int hp = file.get<int>("hp");
 	int as = file.get<int>("attackcooldown");
-	std::string name = file.get<int>("name");
+	std::string name = file.get<std::string>("name");
 	return Hero(name, hp, dmg, as);
 }
 
