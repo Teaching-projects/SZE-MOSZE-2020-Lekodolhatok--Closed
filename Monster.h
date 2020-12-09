@@ -38,11 +38,17 @@ public:
 
 	const int& getDamage() const;
 
-	const double& getAttackCoolDown() const;
+	void getAttacked(const int damage);
+
+	const double getAttackCoolDown() const;
 
 	void fightTilDeath(Monster& other);
 
-	virtual void attack(Monster& enemy);///< This method can take a damage to another monster if his/her Health is not zero
+	virtual void Attack(Monster& enemy);///< This method can take a damage to another monster if his/her Health is not zero
+
+	void setDMG(int d);
+
+	void setHP(int hp);
 
 	bool isAlive() const;
 	/**
