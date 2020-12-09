@@ -115,7 +115,7 @@ void Monster::attackByTimer(Monster& enemy, int time) {
 
 
 //Parsing an Unit from JSON file
-Monster Monster::parse(std::string*& s) {
+Monster Monster::parse(std::string& s) {
 	char* c = new char[s.length()];
 	for (int i = 0; i < s.length(); i++)
 	{
