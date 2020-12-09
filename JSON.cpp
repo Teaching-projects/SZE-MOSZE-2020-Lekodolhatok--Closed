@@ -51,26 +51,18 @@ std::map<std::string, std::string> JSON::parseFromString(std::string& line) {
 		}
 		if (first >= 0 && second >= 0 && third >= 0) {
 			std::string key = line.substr(first + 1, second - first - 1);
-			std::string value;
+			std::variant<std::string,int> value;
 			if (!noend) {
-				if (num) {
-					value = std::stoi(line.substr(third + 1, fourth - third - 1));
-				}
-				else {
-					value = line.substr(third + 1, fourth - third - 1);
-				}
-				
+					value = line.substr(third + 1, fourth - third - 1);				
 			}
 			else {
-				if (num) {
-					value = std::stoi(line.substr(third + 1));
-				}
-				else {
 					value = line.substr(third + 1);
-				}
 			}
 			value.erase(remove(value.begin(), value.end(), ' '), value.end());
-			d.insert(std::pair<std::string,std::string>(key, value));
+			if (num) {
+				value = std::stoi(value);
+			}
+			d.insert(std::pair<std::string,std::string>(key, std::get<0>(value)));
 		}
 		line.erase(0, fourth + 1);
 	} while (first > 0 && second > 0 && third > 0 && fourth > 0);
