@@ -63,7 +63,7 @@ std::map<std::string, std::string> JSON::parseFromString(std::string& line) {
 				d.insert(std::pair<std::string, int>(key, std::stoi(value));
 			}
 			else {
-				d.insert(std::pair<std::string, std::string>(key,value);
+				d.insert(std::pair<std::string, std::string>(key,value));
 			}
 			
 		}
