@@ -115,8 +115,13 @@ void Monster::attackByTimer(Monster& enemy, int time) {
 
 
 //Parsing an Unit from JSON file
-Monster Monster::parse(char*& fname) {
-	JSON file = JSON::parseFromFile(fname);
+Monster Monster::parse(std::string*& s) {
+	char* c = new char[s.length()];
+	for (int i = 0; i < s.length(); i++)
+	{
+		c[i] = s[i];
+	}
+	JSON file = JSON::parseFromFile(c);
 	int dmg = file.get<int>("dmg");
 	int hp = file.get<int>("hp");
 	int as = file.get<int>("attackcooldown");
