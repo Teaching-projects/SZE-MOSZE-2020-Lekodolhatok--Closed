@@ -17,6 +17,12 @@ JSON JSON::parseFromStream(std::ifstream& unit) {
 	}
 	return JSON(d);
 }
+bool JSON::isNumeric(const std::string& s)
+{
+	std::string::const_iterator it = s.begin();
+	while (it != s.end() && std::isdigit(*it)) ++it;
+	return !s.empty() && it == s.end();
+}
 bool JSON::count(const std::string& key) const {
 	return Map.count(key);
 }
@@ -44,7 +50,6 @@ mapType JSON::parseFromString(std::string& line) {
 		if (third <= 0 || nextcomma < third) {
 			third = line.find(":", second + 1);
 			fourth = nextcomma;
-			//num = true;
 		}
 		else {
 			fourth = line.find("\"", third + 1);
@@ -59,7 +64,7 @@ mapType JSON::parseFromString(std::string& line) {
 					value = line.substr(third + 1);
 			}
 			value.erase(remove(value.begin(), value.end(), ' '), value.end());
-			if (num) {
+			if (isNumeric(value)) {
 				d.insert(std::pair<std::string, int>(key, std::stoi(value)));
 			}
 			else {

@@ -1,5 +1,5 @@
 {
   "hero": "units/kakarott.json",
   "monsters": "monsters/Zombie.json",
-  "monsters": "monsters/Zombie.json"
+  "monsters": "monsters/Zombies.json"
 }
