@@ -32,6 +32,7 @@ std::map<std::string, std::string> JSON::parseFromString(std::string& line) {
 		third = line.find("\"", second + 1);
 		fourth = 0;
 		bool noend = false;
+		bool num = false;
 		int nextcomma = line.find(",", second + 1);
 		if (nextcomma < 0) {
 			nextcomma = line.find("}", second + 1);
@@ -42,21 +43,33 @@ std::map<std::string, std::string> JSON::parseFromString(std::string& line) {
 		if (third <= 0 || nextcomma < third) {
 			third = line.find(":", second + 1);
 			fourth = nextcomma;
+			num = true;
 		}
 		else {
 			fourth = line.find("\"", third + 1);
 		}
 		if (first >= 0 && second >= 0 && third >= 0) {
 			std::string key = line.substr(first + 1, second - first - 1);
-			std::string value;
+			valueType value;
 			if (!noend) {
-				value = line.substr(third + 1, fourth - third - 1);
+				if (num) {
+					value = std::stoi(line.substr(third + 1, fourth - third - 1));
+				}
+				else {
+					value = line.substr(third + 1, fourth - third - 1);
+				}
+				
 			}
 			else {
-				value = line.substr(third + 1);
+				if (num) {
+					value = std::stoi(line.substr(third + 1));
+				}
+				else {
+					value = line.substr(third + 1);
+				}
 			}
 			value.erase(remove(value.begin(), value.end(), ' '), value.end());
-			d.insert(std::pair<std::string, std::string>(key, value));
+			d.insert(pairType(key, value));
 		}
 		line.erase(0, fourth + 1);
 	} while (first > 0 && second > 0 && third > 0 && fourth > 0);
