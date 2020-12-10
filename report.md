@@ -4,14 +4,14 @@
 
 | Név | Github azonosito  | Javasolt relatív érdemjegy | Becsült óra | Indoklás  | 
 | --- | ---- | --- | ------------------ | --------- |
-| Stefka Márton | @stefkamarton | +2 | >100 | Koordinálta a csapatot és a feladatok megoldásának menetét, segítette a csapattagok munkáját. Az elvállalt részfeladatokat mindig időre teljesítette. Emellett kijavította a többieknél előforduló hibákat is. A felmerülő problémákat rugalmasan kezelte. |
+| Stefka Márton | @stefkamarton | +2 | >80 | Koordinálta a csapatot és a feladatok megoldásának menetét, segítette a csapattagok munkáját. Az elvállalt részfeladatokat mindig időre teljesítette. Emellett kijavította a többieknél előforduló hibákat is. A felmerülő problémákat rugalmasan kezelte. |
 | Vincze Petra | @petravincze | 0 | 45-55 | Néha bizonytalan volt a dolgában, de igyekezett a legjobb tudása szerint megoldani a nehézségeket. Az elvállalt feladatokat mindig a megbeszélt határidőre elkészítette, azonban néha előrfordultak benne hibák, melyek kijavításához Stefka Márton segítségét kérte.|
-| Orosz Dávid | @russiand96 | -1 | <40 | Az elvállalt feladatok megoldásában gyakran kért segítséget, viszont kevés hibával dolgozott. Néha az utolsó pillanatban fejezte be a munkáját. |
+| Orosz Dávid | @russiand96 | -1 | 30-40 | Az elvállalt feladatok megoldásában gyakran kért segítséget, viszont kevés hibával dolgozott. Néha az utolsó pillanatban fejezte be a munkáját. |
 
 
 # Videók
 
- - [CodeBaseDefense](/videos/proba.mp4)
+ - [CodeBaseDefense](/videos/codebasedefense.mp4)
 
 # Befejezett feladatok
 
