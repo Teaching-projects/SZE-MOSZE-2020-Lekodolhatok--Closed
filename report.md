@@ -17,65 +17,64 @@
 
 | Feladat | Merge ideje a határidóhöz (nap) | Change request körök | Reviewer | 
 | ------- | ------------------------------- | -------------------- | -------- |
-| Feladat 1 | M | M | @oliverosz | 
-| Feladat 2 | M | M | @wajzy |
-| jsonparser | +1 | M | @wajzy |
+| Feladat 1 | +2 | 2 | @oliverosz | 
+| Feladat 2 | 0 | 1 | @wajzy |
+| jsonparser | +1 | 2 | @wajzy |
 | levelup | +1 | 1 | @oliverosz |
-| attackspeed | +1 | - | @vizvezetek |
-| documentation | 2020.12.10. | - | @otherteam / @never |
-| unittest | 2020.12.08. | - | @otherteam / @gonna, @let |
-| makefile | 2020.12.10. | - | @hegyhati |
-| refactor | 2020.12.10. | - | @hegyhati |
-| docker | Nem készült el | - | @hegyhati |
-| jsonpimp | Nem készült el | - | @otherteam / @you, @down |
-| map | Nem készült el | - | @otherteam / @never, @gonna |
-| game | Nem készült el | - | @otherteam / @run, @arond |
-| defense | Nem készült el| - | @otherteam / @and, @desert |
-| damage | Nem készült el | - | @otherteam / @you  |
-| markedmap | Nem készült el | - | @otherteam / @otherguy1,otherguy2 |
+| attackspeed | +1 | 1 | @vizvezetek |
+| documentation | 2020.12.10. | - | @stefkamarton |
+| unittest | 2020.12.08. | - | @stefkamarton |
+| makefile | 2020.12.10. | - | @petravincze |
+| refactor | Hibásan készült el | - | @stefkamarton / @petravincze |
+| docker | Nem készült el | - | - |
+| jsonpimp | Nem készült el | - | - |
+| map | Nem készült el | - | - |
+| game | Nem készült el | - | - |
+| defense | Nem készült el| - | - |
+| damage | Nem készült el | - | -  |
+| markedmap | Nem készült el | - | - |
 | preparedgame | Nem készült el | - | -
-| light radius | Nem készült el | - | @otherteam / @otherguy1,otherguy2 |
-| rendering | Nem készült el | - | @otherteam / @otherguy1,otherguy2 |
+| light radius | Nem készült el | - | - |
+| rendering | Nem készült el | - | - |
 
 # Unit tesztek
 
 | Osztály | Publikus metódusok száma | Unit tesztelt metódusok száma | Unit tesztek száma |
 | --- | --- | --- | --- |
-| `Unit` | 4 | 2 | 8 |
-| `Hero` | 5 | 0 | 0 | 
-| ... |
+| Character | 10 | 10 | 10 |
+| Json | 3 | 3 | 4 | 
 
 # Kód dokumentáció
 
 | Teljesen dokumentált osztályok | Részben dokumentált osztályok | Nem dokumentált osztályok |
 | --- | --- | --- | 
-| `Unit` | `Game` | `JSON` | 
-| `Hero` | ... | ... |  
-| ... |
+| Character | - | Json | 
 
 
 # Mindenféle számok
 
- - Összes cpp kódsor : 603
+ - Összes cpp kódsor : 420
  - Egyéb kódsor (make,doxyfile,shellscript, ...) : 2697
  - cppcheck
-   - warning :
-   - style :
-   - performance :
-   - unusedFunction : 
-   - missingInclude : 
+   - warning : 0
+   - style : 0
+   - performance : 0
+   - unusedFunction : 0 
+   - missingInclude : 0
  
 # Implicit megtanult dolgok
 Olyanok, amik nem a tárgy anyaga, de muszáj/hasznos volt elsajátítani:
- - alapvető shell/python scripting
- - `std::variant`
- - ...
+ - Windows Power Shell
+ - Visual Studio Code
+ - videó készítése
+ - std::pair
+ - std::string::erase
+ - shell scriptek
 
 # Feedback (optional)
  
-Melyik részt találtátok a leghasznosabbnak, miért. Használtátok-e az itt megszerzett dolgokat esetleg közben máskor. Volt-e olyan, amit hiányoltatok a tárgyból. Utólag visszagondolva is jó volt-e az online videósdi?
-
-Ha szívesebben írnátok meg anoním módon, OHV-nál várom.
+Vincze Petra:
+Számomra a leghasznosabb az volt, hogy megismertem a Git-et. Nem csak az egyetemi tanulmányaim során, de később is fogom tudni használni. 
 
 # Üzenet a jövőbe (optional)
 
