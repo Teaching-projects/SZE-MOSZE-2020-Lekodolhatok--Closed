@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['getname',['getName',['../classCharacter.html#a631dd8d1785ff701f0fc51615bb017b2',1,'Character']]]
+  ['character_1',['Character',['../classCharacter.html',1,'Character'],['../classCharacter.html#a513927b490b677a751e2c049b08fb39b',1,'Character::Character()']]],
+  ['characters_2',['Characters',['../classCharacters.html',1,'']]]
 ];
