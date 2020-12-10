@@ -17,11 +17,11 @@
 
 | Feladat | Merge ideje a határidóhöz (nap) | Change request körök | Reviewer | 
 | ------- | ------------------------------- | -------------------- | -------- |
-| Feladat 1 | -2 | 0 | @oliverosz | 
-| Feladat 2 | +2 | 1 | @wajzy |
-| jsonparser | ... | ... | @wajzy |
-| levelup | ... | ... | @oliverosz |
-| attackspeed | ... | ... | @vizvezetek |
+| Feladat 1 | M | M | @oliverosz | 
+| Feladat 2 | M | M | @wajzy |
+| jsonparser | +1 | M | @wajzy |
+| levelup | +1 | 1 | @oliverosz |
+| attackspeed | +1 | - | @vizvezetek |
 | documentation | 2020.12.10. | - | @otherteam / @never |
 | unittest | 2020.12.08. | - | @otherteam / @gonna, @let |
 | makefile | 2020.12.10. | - | @hegyhati |
@@ -80,5 +80,3 @@ Ha szívesebben írnátok meg anoním módon, OHV-nál várom.
 # Üzenet a jövőbe (optional)
 
 Hatékonyabb lenne, ha egy-egy új feladatról email vagy Neptun üzenet is érkezne vagy a fontosabb határidők szelearningen fel lennének tüntetve.
-
-Github-pages link: https://teaching-projects.github.io/SZE-MOSZE-2020-Lekodolhatok/index.html
