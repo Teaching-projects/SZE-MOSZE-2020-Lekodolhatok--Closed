@@ -2,10 +2,6 @@
 #include <fstream>
 #include <cmath>
 
-//szintnoveles
-//eletero es tamadoero a 10%-kal no
-//maximalis eletero az megvaltozott eletero erteket veszi fel
-//XP-t 100-zal csokkentjuk
 int Character::levelUp() {
 	int counter = XP % 100;
 	for (int i = 0; i < counter; i++)
@@ -19,12 +15,11 @@ int Character::levelUp() {
 
 	return XP;
 }
-//Constructor of character class
+
 Character::Character(const std::string& name, int hp, const int dmg, const int attackspeed) :Name(name), HP(hp), DMG(dmg), AttackSpeed(attackspeed) {
 	MaxHP = hp;
 }
 
-//Getter of character's name
 const std::string& Character::getName() const {
 	return Character::Name;
 }
@@ -34,8 +29,7 @@ void Character::attackByTimer(Character& enemy, int time) {
 		Character::attackEnemy(enemy);
 	}
 }
-//ha a tamadas soran az eletero 0 ala csokken, akkor az uj eletero 0 lesz, 
-//egyebkent kivonodik belole a tamado ero
+
 void Character::attackEnemy(Character& enemy) {
 	if (enemy.HP - Character::DMG <= 0) {
 		enemy.HP = 0;
@@ -51,13 +45,10 @@ void Character::attackEnemy(Character& enemy) {
 	}
 }
 
-//logikai fuggveny, visszaadja, hogy a karakter meghalt-e
 bool Character::isDead() const {
 	return Character::HP <= 0 ? true : false;
 }
 
-
-//Parsing an Unit from JSON file
 Character Character::parseUnit(const std::string& fname) {
 	std::string name;
 	int hp = 0;
@@ -109,31 +100,35 @@ Character Character::parseUnit(const std::string& fname) {
 	return Character(name, hp, dmg, attackspeed);
 }
 
-//visszaadja a maradek eleterot
 const int& Character::remainingHP() const {
 	return Character::HP;
 }
+
 int Character::getMaxHP() const {
 	return MaxHP;
 }
+
 int Character::getDMG() const {
 	return DMG;
 }
+
 int Character::getLevel() const {
 	return Level;
 }
+
 int Character::getXP() const {
 	return XP;
 }
+
 const int Character::getAttackSpeed() const {
 	return AttackSpeed;
 }
-
 
 std::ostream& operator<<(std::ostream& os, const Character& ch) {
 	os << ch.Name << ": HP: " << ch.HP << ", DMG: " << ch.DMG << ", AS: " << ch.AttackSpeed << std::endl;
 	return os;
 }
+
 bool operator==(const Character& en, const Character& dt) {
 	if (en.getName() == dt.getName() || en.remainingHP() == dt.remainingHP() || en.getMaxHP() == dt.getMaxHP()
 		|| en.getDMG() == dt.getDMG() || en.getLevel() == dt.getLevel() || en.getXP() == dt.getXP()
