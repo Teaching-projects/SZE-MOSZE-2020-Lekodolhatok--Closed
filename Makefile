@@ -2,7 +2,7 @@ OBJS := main.o character.o jsonparser.o
 CFLAGS := -Wall -std=c++17
 CC := g++-9
 
-add: $(OBJS)
+play: $(OBJS)
 	$(CC) $(CFLAGS) -o play $(OBJS)
 
 main.o: main.cpp character.h jsonparser.h
@@ -12,7 +12,7 @@ character.o: character.cpp
 	$(CC) $(CFLAGS) -c character.cpp
 
 jsonparser.o: jsonparser.cpp
-	$(CC) $(CFLAGS) -c Monster.cpp
+	$(CC) $(CFLAGS) -c jsonparser.cpp
 
 clean:
 	rm -rf *.o play *.out ./docs 
