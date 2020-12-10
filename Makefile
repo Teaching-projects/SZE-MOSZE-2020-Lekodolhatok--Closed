@@ -1,24 +1,21 @@
-OBJS := main.o Hero.o Monster.o JSON.o
+OBJS := main.o character.o jsonparser.o
 CFLAGS := -Wall -std=c++17
 CC := g++-9
 
 add: $(OBJS)
 	$(CC) $(CFLAGS) -o play $(OBJS)
 
-main.o: main.cpp Hero.h Monster.h JSON.h
+main.o: main.cpp character.h jsonparser.h
 	$(CC) $(CFLAGS) -c main.cpp
 
-Hero.o: Hero.cpp Hero.h Monster.h JSON.h
-	$(CC) $(CFLAGS) -c Hero.cpp
+character.o: character.cpp 
+	$(CC) $(CFLAGS) -c character.cpp
 
-Monster.o: Monster.cpp Monster.h JSON.h
+jsonparser.o: jsonparser.cpp
 	$(CC) $(CFLAGS) -c Monster.cpp
 
-JSON.o: JSON.cpp JSON.h
-	$(CC) $(CFLAGS) -c JSON.cpp
-
 clean:
-	rm -rf *.o mosze_01 *.out ./docs 
+	rm -rf *.o play *.out ./docs 
 
 cppcheck:
 	cppcheck *.cpp --enable=warning --output-file=cppcheck_errors.txt
