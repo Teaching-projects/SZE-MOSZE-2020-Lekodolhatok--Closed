@@ -3,8 +3,7 @@ name: Doxygen documentation
 on:
   push:
     branches:
-      - attackspeed
-      - lekodolhatokdoxy
+      - master
 
 jobs:
   doxygen:
@@ -23,3 +22,4 @@ jobs:
           BRANCH: lekodolhatokdoxy
           FOLDER: DOCS/html
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLEAN: true
